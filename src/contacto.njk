@@ -1,0 +1,96 @@
+---
+layout: "base.njk"
+title: "Contacto"
+description: "Hablemos de tu proyecto. Contacta con Visión MS Producción Audiovisual para cotizar tu boda, evento o proyecto corporativo."
+---
+
+<style>
+    /* Estilos específicos para esta página */
+    .contact-wrapper { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; }
+    .contact-form h3 { font-size: 1.8rem; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; font-family: var(--fuente-texto); }
+    
+    .contact-info { background-color: var(--color-fondo-claro); padding: 40px; border-radius: 10px; }
+    .contact-info h3 { font-size: 1.8rem; }
+    .contact-info p { margin-bottom: 20px; }
+    .info-item { display: flex; align-items: center; margin-bottom: 20px; font-size: 1rem; }
+    .info-item a { color: var(--color-texto-oscuro); text-decoration: none; font-weight: 600; transition: color 0.3s;}
+    .info-item a:hover { color: var(--color-rojo-principal); }
+    .info-item .icon { font-size: 1.5rem; margin-right: 15px; color: var(--color-rojo-principal); width: 25px; text-align: center;}
+
+    @media (max-width: 768px) {
+        .contact-wrapper { grid-template-columns: 1fr; }
+    }
+</style>
+
+<main>
+    <section class="page-header" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/retrato-9.jpg');" data-aos="fade-in">
+        <div class="container">
+            <h1>Hablemos.</h1>
+            <p style="font-size: 1.2rem;">Estamos listos para escuchar tu idea y convertirla en una realidad visual.</p>
+        </div>
+    </section>
+
+    <section id="contact-main">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-form" data-aos="fade-right">
+                    <h3>Envíanos un Mensaje</h3>
+                    <p>Completa el formulario y te responderemos en menos de 24 horas.</p>
+                    <form name="contact" method="POST" data-netlify="true" style="margin-top: 30px;">
+                         <input type="hidden" name="form-name" value="contact" />
+                        <div class="form-group">
+                            <label for="name">Nombre Completo</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inquiry-type">Tipo de Consulta</label>
+                            <select id="inquiry-type" name="inquiry-type">
+                                <option value="evento-social">Evento Social / Boda</option>
+                                <option value="servicio-empresa">Servicio para Empresa</option>
+                                <option value="produccion-vivo">Producción en Vivo</option>
+                                <option value="general">Consulta General</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Tu Mensaje</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+                <div class="contact-info" data-aos="fade-left" data-aos-delay="200">
+                    <h3>Información de Contacto</h3>
+                    <p>También puedes contactarnos directamente a través de estos canales.</p>
+                    <div class="info-item">
+                       <span class="icon">✉️</span>
+                       <a href="mailto:{{ sitio.email }}">{{ sitio.email }}</a>
+                    </div>
+                    <div class="info-item">
+                       <span class="icon">📞</span>
+                       <a href="tel:{{ sitio.telefono }}">{{ sitio.telefono }}</a>
+                    </div>
+                    <div class="info-item">
+                       <span class="icon">📍</span>
+                       <span>Pasto, Nariño - Colombia</span>
+                    </div>
+                    <h3 style="margin-top: 40px;">Síguenos</h3>
+                    <div class="info-item">
+                        <span class="icon">📷</span>
+                        <a href="{{ sitio.instagram_url }}" target="_blank" rel="noopener noreferrer">Instagram</a>
+                    </div>
+                     <div class="info-item">
+                        <span class="icon">▶️</span>
+                        <a href="{{ sitio.youtube_url }}" target="_blank" rel="noopener noreferrer">YouTube</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
