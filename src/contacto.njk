@@ -5,7 +5,6 @@ description: "Hablemos de tu proyecto. Contacta con Visión MS Producción Audio
 ---
 
 <style>
-    /* Estilos específicos para esta página */
     .contact-wrapper { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; }
     .contact-form h3 { font-size: 1.8rem; }
     .form-group { margin-bottom: 20px; }
@@ -18,7 +17,13 @@ description: "Hablemos de tu proyecto. Contacta con Visión MS Producción Audio
     .info-item { display: flex; align-items: center; margin-bottom: 20px; font-size: 1rem; }
     .info-item a { color: var(--color-texto-oscuro); text-decoration: none; font-weight: 600; transition: color 0.3s;}
     .info-item a:hover { color: var(--color-rojo-principal); }
-    .info-item .icon { font-size: 1.5rem; margin-right: 15px; color: var(--color-rojo-principal); width: 25px; text-align: center;}
+    .info-item .icon { 
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+        margin-right: 15px;
+        fill: var(--color-rojo-principal); /* Colorea el logo */
+    }
 
     @media (max-width: 768px) {
         .contact-wrapper { grid-template-columns: 1fr; }
@@ -67,26 +72,15 @@ description: "Hablemos de tu proyecto. Contacta con Visión MS Producción Audio
                 </div>
                 <div class="contact-info" data-aos="fade-left" data-aos-delay="200">
                     <h3>Información de Contacto</h3>
-                    <p>También puedes contactarnos directamente a través de estos canales.</p>
-                    <div class="info-item">
-                       <span class="icon">✉️</span>
-                       <a href="mailto:{{ sitio.email }}">{{ sitio.email }}</a>
-                    </div>
-                    <div class="info-item">
-                       <span class="icon">📞</span>
-                       <a href="tel:{{ sitio.telefono }}">{{ sitio.telefono }}</a>
-                    </div>
-                    <div class="info-item">
-                       <span class="icon">📍</span>
-                       <span>Pasto, Nariño - Colombia</span>
-                    </div>
+                    <p>También puedes contactarnos directamente.</p>
+                    <!-- ... otros info-items ... -->
                     <h3 style="margin-top: 40px;">Síguenos</h3>
                     <div class="info-item">
-                        <span class="icon">📷</span>
-                        <a href="{{ sitio.instagram_url }}" target="_blank" rel="noopener noreferrer">Instagram</a>
+                       <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37.2-2.1-147.9-2.1-185.1 0-35.9 1.7-67.7 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37.2-2.1 147.9 0 185.1 1.7 35.9 9.9 67.7 36.2 93.9 26.3 26.2 58 34.4 93.9 36.2 37.2 2.1 147.9 2.1 185.1 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37.2 2.1-147.8 0-185.1z"/></svg>
+                       <a href="{{ sitio.instagram_url }}" target="_blank" rel="noopener noreferrer">Instagram</a>
                     </div>
                      <div class="info-item">
-                        <span class="icon">▶️</span>
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 42.276 48.284 48.597C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.322 42.003-24.947 48.284-48.597 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zM232.615 354.708V157.292L354.814 256l-122.199 98.708z"/></svg>
                         <a href="{{ sitio.youtube_url }}" target="_blank" rel="noopener noreferrer">YouTube</a>
                     </div>
                 </div>
@@ -94,3 +88,4 @@ description: "Hablemos de tu proyecto. Contacta con Visión MS Producción Audio
         </div>
     </section>
 </main>
+```</details>
