@@ -1,0 +1,31 @@
+---
+layout: "base.njk"
+title: "Inicio"
+description: "Producción audiovisual profesional para bodas, eventos y empresas en Pasto, Colombia."
+---
+
+<main>
+    <section class="hero">
+        <div class="video-background">
+            <iframe src="https://www.youtube.com/embed/j0oz7MHCsLM?autoplay=1&mute=1&loop=1&playlist=j0oz7MHCsLM&controls=0&showinfo=0&autohide=1&modestbranding=1" frameborder="0"></iframe>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content" data-aos="fade-in">
+            <h1>{{ homepage.titulo }}</h1>
+            <p>{{ homepage.subtitulo }}</p>
+            <div class="cta-buttons">
+                <a href="/eventos/" class="btn btn-primary">Eventos Sociales</a>
+                <a href="/empresas/" class="btn btn-secondary">Soluciones para Empresas</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="intro">
+        <div class="container" data-aos="fade-up">
+            <h2>{{ homepage.intro_titulo }}</h2>
+            <p>{{ homepage.intro_texto }}</p>
+        </div>
+    </section>
+
+    <!-- ... RESTO DE LAS SECCIONES DEL INDEX ... -->
+</main>
