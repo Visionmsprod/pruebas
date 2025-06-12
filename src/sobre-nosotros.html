@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - Visión MS Producción Audiovisual</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="animations.css">
+    <style>
+        :root { --color-rojo-principal: #D9232D; --color-fondo-oscuro: #1a1a1a; --color-fondo-claro: #f4f4f4; --color-texto-oscuro: #333; --color-texto-claro: #ffffff; --fuente-titulos: 'Montserrat', sans-serif; --fuente-texto: 'Open Sans', sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--fuente-texto); color: var(--color-texto-oscuro); line-height: 1.6; background-color: #fff; }
+        .container { max-width: 1100px; margin: auto; padding: 0 20px; }
+        h1, h2, h3 { font-family: var(--fuente-titulos); font-weight: 700; margin-bottom: 20px; }
+        section { padding: 80px 0; overflow-x: hidden; }
+        .btn { display: inline-block; padding: 12px 28px; background-color: var(--color-rojo-principal); color: var(--color-texto-claro); text-decoration: none; font-weight: 700; border-radius: 5px; transition: transform 0.3s, background-color 0.3s; text-transform: uppercase; font-size: 14px; }
+        .btn:hover { transform: scale(1.05); background-color: #b81e26; }
+        .header { background-color: rgba(26, 26, 26, 0.9); color: var(--color-texto-claro); padding: 15px 0; position: sticky; top: 0; width: 100%; z-index: 1000; backdrop-filter: blur(5px); }
+        .header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { height: 50px; }
+        .main-nav ul { list-style: none; display: flex; align-items: center;}
+        .main-nav ul li { margin-left: 25px; }
+        .main-nav ul li a { color: var(--color-texto-claro); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        .main-nav ul li a:hover { color: var(--color-rojo-principal); }
+        .menu-toggle { display: none; font-size: 2rem; background: none; border: none; color: white; cursor: pointer; }
+        .page-header { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('luisk.jpg') center center/cover no-repeat; padding: 100px 0; text-align: center; color: var(--color-texto-claro); }
+        .page-header h1 { font-size: 3rem; font-weight: 900; }
+        .about-content { display: grid; grid-template-columns: 1fr 2fr; gap: 50px; align-items: center; }
+        .about-content img { width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        #equipo h2 { text-align: center; font-size: 2.5rem; }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .team-card { background: white; padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s;}
+        .team-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .team-card img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 4px solid var(--color-rojo-principal); }
+        .team-card h3 { margin-bottom: 5px; }
+        .team-card .title { color: var(--color-rojo-principal); font-weight: 700; margin-bottom: 15px; }
+        #cta-final { background-color: var(--color-fondo-oscuro); color: var(--color-texto-claro); text-align: center; }
+        #cta-final h2 { font-size: 2.5rem; }
+        footer { background-color: #111; color: #aaa; text-align: center; padding: 40px 0; }
+        .footer-content { max-width: 800px; margin: auto; }
+        .footer-logo { height: 60px; margin-bottom: 20px; }
+        .footer-nav { margin: 20px 0; }
+        .footer-nav a { color: #aaa; margin: 0 15px; text-decoration: none; transition: color 0.3s; }
+        .footer-nav a:hover { color: var(--color-rojo-principal); }
+        .social-icons { margin: 20px 0; }
+        .social-icons a { color: #aaa; margin: 0 15px; text-decoration: none; font-size: 1.5rem; transition: color 0.3s; }
+        .social-icons a:hover { color: var(--color-rojo-principal); }
+        @media (max-width: 850px) {
+            .header .container { flex-direction: row; }
+            .menu-toggle { display: block; z-index: 1001; }
+            .main-nav { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); justify-content: center; align-items: center; }
+            .main-nav.is-active { display: flex; }
+            .main-nav ul { flex-direction: column; }
+            .main-nav ul li { margin: 20px 0; }
+            .main-nav ul li a { font-size: 1.5rem; }
+            .about-content { grid-template-columns: 1fr; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <div id="preloader"><div class="spinner"></div></div>
+    <header class="header">
+        <div class="container">
+            <a href="index.html">
+                <img src="logo1.png" alt="Visión MS Producción Audiovisual Logo" class="logo">
+            </a>
+            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="empresas.html">Empresas</a></li>
+                    <li><a href="portafolio.html">Portafolio</a></li>
+                    <li><a href="cotizador.html">Cotizador</a></li>
+                    <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html" class="btn">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="page-header" data-aos="fade-in">
+            <div class="container">
+                <h1>Apasionados por la Imagen. Comprometidos con Tu Visión.</h1>
+            </div>
+        </section>
+        <section id="historia">
+            <div class="container">
+                <div class="about-content">
+                    <div data-aos="fade-right">
+                        <img src="luisk.jpg" alt="Luis Carlos Mueses en acción">
+                    </div>
+                    <div data-aos="fade-left">
+                        <h2>Nuestra Historia: De una Pasión a una Misión</h2>
+                        <p>Mi nombre es <strong>Luis Carlos Mueses</strong>, fundador de Visión MS. Mi fascinación por la cámara no empezó en un estudio, sino capturando los momentos cotidianos: la luz del atardecer, la sonrisa de un ser querido, la energía de un concierto. Esa pasión se convirtió en una obsesión por la calidad, la técnica y, sobre todo, por la narrativa.</p>
+                        <p>Decidí fundar Visión MS para llevar esa misma dedicación a dos mundos que, aunque parecen diferentes, comparten un núcleo común: la emoción humana. Ya sea la alegría desbordante de una boda o la ambición y el propósito de una marca, nuestro objetivo es el mismo: encontrar el corazón de la historia y traducirlo en imágenes impactantes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="equipo" style="background-color: var(--color-fondo-claro);">
+            <div class="container">
+                <h2 data-aos="fade-up">Conoce al Equipo</h2>
+                <div class="team-grid">
+                    <div class="team-card" data-aos="zoom-in-up">
+                        <img src="luisk.jpg" alt="Foto de Luis Carlos Mueses">
+                        <h3>Luis Carlos Mueses</h3>
+                        <p class="title">Fundador y Realizador Audiovisual</p>
+                        <p>"Mi obsesión es encontrar la belleza en lo ordinario y la emoción en lo extraordinario."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+         <section id="cta-final">
+            <div class="container" data-aos="zoom-in">
+                <h2>Suficiente sobre nosotros, ¡hablemos de ti!</h2>
+                <p>¿Qué historia quieres contar?</p>
+                <br>
+                <a href="contacto.html" class="btn">Iniciemos tu Proyecto</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container footer-content">
+            <img src="logo1.png" alt="Logo Visión MS" class="footer-logo">
+            <nav class="footer-nav">
+                <a href="index.html">Inicio</a> | 
+                <a href="portafolio.html">Portafolio</a> | 
+                <a href="cotizador.html">Cotizador</a> | 
+                <a href="contacto.html">Contacto</a>
+            </nav>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/vmsaudiovisual/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📷</a>
+                <a href="https://www.youtube.com/@vmsproduccionaudiovisual4856" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶️</a>
+            </div>
+            <p>&copy; 2024 Visión MS Producción Audiovisual. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 800, once: true });
+      const preloader = document.getElementById('preloader');
+      window.addEventListener('load', () => {
+          preloader.style.opacity = '0';
+          setTimeout(() => { preloader.style.display = 'none'; }, 500);
+      });
+      const menuToggle = document.querySelector('.menu-toggle');
+      const mainNav = document.querySelector('.main-nav');
+      menuToggle.addEventListener('click', () => {
+          mainNav.classList.toggle('is-active');
+          menuToggle.innerHTML = mainNav.classList.contains('is-active') ? '✕' : '☰';
+      });
+      document.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', (e) => {
+              const href = link.getAttribute('href');
+              if (link.hostname === window.location.hostname && href && !href.startsWith('#')) {
+                  e.preventDefault();
+                  if (mainNav.classList.contains('is-active')) {
+                      mainNav.classList.remove('is-active');
+                      menuToggle.innerHTML = '☰';
+                  }
+                  document.body.classList.add('fade-out');
+                  setTimeout(() => { window.location.href = href; }, 400);
+              }
+          });
+      });
+    </script>
+</body>
+</html>

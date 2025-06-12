@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluciones para Empresas - Visión MS Producción Audiovisual</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="animations.css">
+    <style>
+        :root { --color-rojo-principal: #D9232D; --color-fondo-oscuro: #1a1a1a; --color-fondo-claro: #f4f4f4; --color-texto-oscuro: #333; --color-texto-claro: #ffffff; --fuente-titulos: 'Montserrat', sans-serif; --fuente-texto: 'Open Sans', sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--fuente-texto); color: var(--color-texto-oscuro); line-height: 1.6; background-color: #fff; }
+        .container { max-width: 1100px; margin: auto; padding: 0 20px; }
+        h1, h2, h3 { font-family: var(--fuente-titulos); font-weight: 700; margin-bottom: 20px; }
+        section { padding: 80px 0; overflow-x: hidden; }
+        .btn { display: inline-block; padding: 12px 28px; background-color: var(--color-rojo-principal); color: var(--color-texto-claro); text-decoration: none; font-weight: 700; border-radius: 5px; transition: transform 0.3s, background-color 0.3s; text-transform: uppercase; font-size: 14px; }
+        .btn:hover { transform: scale(1.05); background-color: #b81e26; }
+        .header { background-color: rgba(26, 26, 26, 0.9); color: var(--color-texto-claro); padding: 15px 0; position: sticky; top: 0; width: 100%; z-index: 1000; backdrop-filter: blur(5px); }
+        .header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { height: 50px; }
+        .main-nav ul { list-style: none; display: flex; align-items: center;}
+        .main-nav ul li { margin-left: 25px; }
+        .main-nav ul li a { color: var(--color-texto-claro); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        .main-nav ul li a:hover { color: var(--color-rojo-principal); }
+        .menu-toggle { display: none; font-size: 2rem; background: none; border: none; color: white; cursor: pointer; }
+        .page-header { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/empresa-01.jpg') center center/cover no-repeat; padding: 100px 0; text-align: center; color: var(--color-texto-claro); }
+        .page-header h1 { font-size: 3.5rem; font-weight: 900; }
+        .page-header p { font-size: 1.2rem; max-width: 700px; margin: 0 auto; }
+        .text-center { text-align: center; }
+        .intro-text { max-width: 800px; margin: 0 auto; }
+        .intro-text ul { list-style: none; padding-left: 0; margin-top: 20px; text-align: left; display: inline-block;}
+        .intro-text ul li { font-weight: 600; padding: 5px 0; }
+        .intro-text ul li::before { content: '✓'; color: var(--color-rojo-principal); margin-right: 10px; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 800px; background: #000; margin: 40px auto; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .service-section { padding-top: 40px; margin-bottom: 60px; }
+        .service-section h3 { font-size: 2rem; border-bottom: 3px solid var(--color-rojo-principal); display: inline-block; padding-bottom: 10px; margin-bottom: 30px; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .gallery-grid div { overflow: hidden; border-radius: 5px; }
+        .gallery-grid img { width: 100%; height: 280px; object-fit: cover; display: block; transition: transform 0.3s;}
+        .gallery-grid img:hover { transform: scale(1.05); }
+        #proceso { background-color: var(--color-fondo-claro); }
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .process-step { background: white; padding: 30px; border-radius: 10px; border-top: 4px solid var(--color-rojo-principal); transition: transform 0.3s, box-shadow 0.3s; }
+        .process-step:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .process-step h3 { font-size: 1.2rem; }
+        .process-step .step-number { font-size: 2.5rem; font-weight: 900; color: var(--color-rojo-principal); margin-bottom: 10px; }
+        footer { background-color: #111; color: #aaa; text-align: center; padding: 40px 0; }
+        .footer-content { max-width: 800px; margin: auto; }
+        .footer-logo { height: 60px; margin-bottom: 20px; }
+        .footer-nav { margin: 20px 0; }
+        .footer-nav a { color: #aaa; margin: 0 15px; text-decoration: none; transition: color 0.3s; }
+        .footer-nav a:hover { color: var(--color-rojo-principal); }
+        .social-icons { margin: 20px 0; }
+        .social-icons a { color: #aaa; margin: 0 15px; text-decoration: none; font-size: 1.5rem; transition: color 0.3s; }
+        .social-icons a:hover { color: var(--color-rojo-principal); }
+        @media (max-width: 850px) {
+            .header .container { flex-direction: row; }
+            .menu-toggle { display: block; z-index: 1001; }
+            .main-nav { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); justify-content: center; align-items: center; }
+            .main-nav.is-active { display: flex; }
+            .main-nav ul { flex-direction: column; }
+            .main-nav ul li { margin: 20px 0; }
+            .main-nav ul li a { font-size: 1.5rem; }
+            .page-header h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div id="preloader"><div class="spinner"></div></div>
+    
+    <header class="header">
+        <div class="container">
+            <a href="index.html">
+                <img src="logo1.png" alt="Visión MS Producción Audiovisual Logo" class="logo">
+            </a>
+            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="empresas.html">Empresas</a></li>
+                    <li><a href="portafolio.html">Portafolio</a></li>
+                    <li><a href="cotizador.html">Cotizador</a></li>
+                    <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html" class="btn">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="page-header" data-aos="fade-in">
+            <div class="container">
+                <h1>Producción Audiovisual que Impulsa tu Marca.</h1>
+                <p>Video, fotografía y soluciones aéreas para empresas que buscan impactar, comunicar y vender más.</p>
+            </div>
+        </section>
+        <section id="intro" class="text-center">
+            <div class="container" data-aos="fade-up">
+                <h2>En el Ruido Digital, la Calidad Visual es tu Ventaja Competitiva.</h2>
+                <div class="intro-text">
+                    <p>Un video mediocre o una fotografía de baja calidad no solo no vende, sino que daña la percepción de tu marca. En Visión MS, creamos activos visuales que funcionan como herramientas estratégicas para tu negocio.</p>
+                    <ul>
+                        <li>Atrae y retiene la atención de tu audiencia.</li>
+                        <li>Comunica tu propuesta de valor de forma efectiva.</li>
+                        <li>Genera confianza y credibilidad en tu mercado.</li>
+                        <li>Impulsa la conversión y las ventas.</li>
+                    </ul>
+                </div>
+                <div class="video-container" data-aos="zoom-in-up">
+                    <iframe src="https://www.youtube.com/embed/j0oz7MHCsLM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+        <section id="servicios-empresa" style="background-color: var(--color-fondo-claro);">
+            <div class="container text-center" data-aos="fade-up">
+                <h2>Nuestras Soluciones para tu Negocio</h2>
+                <div class="service-section">
+                    <h3 data-aos="fade-right">Fotografía de Producto y Comida</h3>
+                    <p>Imágenes que despiertan el deseo y destacan la calidad de tus productos. Perfectas para e-commerce, catálogos y redes sociales.</p>
+                    <div class="gallery-grid" style="margin-top: 30px;">
+                        <div data-aos="zoom-in" data-aos-delay="100"><img src="images/producto-comida.jpg" alt="Foto de Comida"></div>
+                        <div data-aos="zoom-in" data-aos-delay="200"><img src="images/producto-cartera.jpg" alt="Foto de Cartera"></div>
+                        <div data-aos="zoom-in" data-aos-delay="300"><img src="images/producto-moto.jpg" alt="Foto de Motocicleta"></div>
+                        <div data-aos="zoom-in" data-aos-delay="400"><img src="images/producto-vino.jpg" alt="Foto de Botella de Vino"></div>
+                    </div>
+                </div>
+                <div class="service-section">
+                    <h3 data-aos="fade-right">Fotografía Corporativa y de Eventos Empresariales</h3>
+                    <p>Desde retratos profesionales para tu equipo hasta la cobertura completa de conferencias y lanzamientos. Proyectamos la mejor imagen de tu marca.</p>
+                    <div class="gallery-grid" style="margin-top: 30px;">
+                        <div data-aos="zoom-in" data-aos-delay="100"><img src="images/empresa.jpg" alt="Fotógrafo Corporativo"></div>
+                        <div data-aos="zoom-in" data-aos-delay="200"><img src="images/corporativ.jpg" alt="Retrato Corporativo"></div>
+                        <div data-aos="zoom-in" data-aos-delay="300"><img src="images/empresa-03.jpg" alt="Evento Empresarial"></div>
+                        <div data-aos="zoom-in" data-aos-delay="400"><img src="images/empresa-04.jpg" alt="Equipo de Producción"></div>
+                    </div>
+                </div>
+                 <div style="margin-top: 60px;" data-aos="fade-up">
+                    <a href="portafolio.html" class="btn">Ver Más Trabajos</a>
+                </div>
+            </div>
+        </section>
+        <section id="proceso">
+            <div class="container text-center" data-aos="fade-up">
+                <h2>Un Proceso Optimizado para el Éxito</h2>
+                <p style="margin-bottom: 60px;">La planificación meticulosa es la clave de nuestro éxito. Así trabajamos para garantizar resultados impecables.</p>
+                <div class="process-grid">
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="100"><div class="step-number">01</div><h3>Briefing y Estrategia</h3><p>Nos reunimos para entender a fondo tus objetivos, público y mensaje clave.</p></div>
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="200"><div class="step-number">02</div><h3>Pre-producción</h3><p>Desarrollamos el concepto creativo, el guion y planificamos toda la logística.</p></div>
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="300"><div class="step-number">03</div><h3>Producción y Ejecución</h3><p>Con nuestro equipo y tecnología de punta, llevamos a cabo el proyecto.</p></div>
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="400"><div class="step-number">04</div><h3>Post-producción y Entrega</h3><p>Editamos, corregimos y entregamos un producto final pulido y listo para publicar.</p></div>
+                </div>
+            </div>
+        </section>
+        <section id="cta-cotizador" class="text-center" style="background-color: var(--color-fondo-claro);">
+            <div class="container" data-aos="zoom-in">
+                <h2>¿Tienes un proyecto en mente?</h2>
+                <p>Usa nuestro cotizador online para configurar un paquete de servicios y recibir una propuesta formal.</p>
+                <a href="cotizador.html" class="btn" style="margin-top: 20px;">Solicitar Propuesta</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container footer-content">
+            <img src="logo1.png" alt="Logo Visión MS" class="footer-logo">
+            <nav class="footer-nav">
+                <a href="index.html">Inicio</a> | 
+                <a href="portafolio.html">Portafolio</a> | 
+                <a href="cotizador.html">Cotizador</a> | 
+                <a href="contacto.html">Contacto</a>
+            </nav>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/vmsaudiovisual/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📷</a>
+                <a href="https://www.youtube.com/@vmsproduccionaudiovisual4856" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶️</a>
+            </div>
+            <p>&copy; 2024 Visión MS Producción Audiovisual. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 800, once: true });
+
+      const preloader = document.getElementById('preloader');
+      window.addEventListener('load', () => {
+          preloader.style.opacity = '0';
+          setTimeout(() => { preloader.style.display = 'none'; }, 500);
+      });
+
+      const menuToggle = document.querySelector('.menu-toggle');
+      const mainNav = document.querySelector('.main-nav');
+      
+      menuToggle.addEventListener('click', () => {
+          mainNav.classList.toggle('is-active');
+          menuToggle.innerHTML = mainNav.classList.contains('is-active') ? '✕' : '☰';
+      });
+
+      document.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', (e) => {
+              const href = link.getAttribute('href');
+              if (link.hostname === window.location.hostname && href && !href.startsWith('#')) {
+                  e.preventDefault();
+                  if (mainNav.classList.contains('is-active')) {
+                      mainNav.classList.remove('is-active');
+                      menuToggle.innerHTML = '☰';
+                  }
+                  document.body.classList.add('fade-out');
+                  setTimeout(() => { window.location.href = href; }, 400);
+              }
+          });
+      });
+    </script>
+</body>
+</html>

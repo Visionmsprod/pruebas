@@ -1,0 +1,5 @@
+[build]
+  # No necesitamos un comando de construcción para un sitio simple
+  command = "echo 'Sitio estático, no se requiere construcción'"
+  # La carpeta que debe publicar es la raíz del repositorio
+  publish = "."

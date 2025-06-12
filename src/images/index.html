@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visión MS Producción Audiovisual - Inicio</title>
+    <meta name="description" content="Producción audiovisual profesional para bodas, eventos y empresas. Fotografía y video de alta calidad que cuenta historias y genera resultados.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="animations.css">
+    <style>
+        :root { --color-rojo-principal: #D9232D; --color-fondo-oscuro: #1a1a1a; --color-fondo-claro: #f4f4f4; --color-texto-oscuro: #333; --color-texto-claro: #ffffff; --fuente-titulos: 'Montserrat', sans-serif; --fuente-texto: 'Open Sans', sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--fuente-texto); color: var(--color-texto-oscuro); line-height: 1.6; background-color: #fff; }
+        .container { max-width: 1100px; margin: auto; padding: 0 20px; }
+        h1, h2, h3 { font-family: var(--fuente-titulos); font-weight: 700; margin-bottom: 20px; }
+        section { padding: 80px 0; overflow-x: hidden; }
+        .btn { display: inline-block; padding: 12px 28px; background-color: var(--color-rojo-principal); color: var(--color-texto-claro); text-decoration: none; font-weight: 700; border-radius: 5px; transition: transform 0.3s, background-color 0.3s; text-transform: uppercase; font-size: 14px; }
+        .btn:hover { transform: scale(1.05); background-color: #b81e26; }
+        .header { background-color: rgba(26, 26, 26, 0.9); color: var(--color-texto-claro); padding: 15px 0; position: sticky; top: 0; width: 100%; z-index: 1000; backdrop-filter: blur(5px); }
+        .header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { height: 50px; }
+        .main-nav ul { list-style: none; display: flex; align-items: center; }
+        .main-nav ul li { margin-left: 25px; }
+        .main-nav ul li a { color: var(--color-texto-claro); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        .main-nav ul li a:hover { color: var(--color-rojo-principal); }
+        .menu-toggle { display: none; font-size: 2rem; background: none; border: none; color: white; cursor: pointer; }
+        .hero { position: relative; height: 100vh; color: var(--color-texto-claro); display: flex; justify-content: center; align-items: center; text-align: center; padding: 0 20px; overflow: hidden; }
+        .video-background { position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; z-index: -1; transform: translate(-50%, -50%); pointer-events: none; }
+        .video-background iframe { width: 100vw; height: 56.25vw; min-height: 100vh; min-width: 177.77vh; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); }
+        .hero-content { position: relative; z-index: 1; }
+        .hero h1 { font-size: 4rem; font-weight: 900; margin-bottom: 10px; }
+        .hero p { font-size: 1.5rem; margin-bottom: 30px; }
+        .hero .cta-buttons .btn { margin: 0 10px; padding: 15px 35px; font-size: 16px; }
+        .hero .btn.btn-secondary { background-color: transparent; border: 2px solid var(--color-rojo-principal); }
+        .hero .btn.btn-secondary:hover { background-color: var(--color-rojo-principal); }
+        #intro { text-align: center; }
+        #intro h2 { font-size: 2.5rem; }
+        #intro p { max-width: 800px; margin: 0 auto; font-size: 1.1rem; }
+        #servicios { background-color: var(--color-fondo-claro); }
+        #servicios h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center; }
+        .service-card { background: var(--color-texto-claro); padding: 40px 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 15px 25px rgba(0,0,0,0.1); }
+        .service-card h3 { color: var(--color-rojo-principal); }
+        #portafolio h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 300px); gap: 15px; }
+        .portfolio-item { display: block; border-radius: 5px; overflow: hidden; background-size: cover; background-position: center center; transition: transform 0.5s ease; }
+        .portfolio-item:hover { transform: scale(1.05); }
+        .focus-top { background-position: center top; }
+        #testimonios { background-color: var(--color-fondo-claro); }
+        #testimonios h2 { text-align: center; font-size: 2.5rem; margin-bottom: 60px; }
+        .testimonials-container { display: flex; gap: 30px; flex-wrap: wrap; }
+        .testimonial-card { background: var(--color-texto-claro); padding: 30px; border-radius: 10px; border-left: 5px solid var(--color-rojo-principal); flex: 1; min-width: 300px; }
+        .testimonial-card p { font-style: italic; margin-bottom: 15px; }
+        .testimonial-card cite { font-weight: 700; }
+        #cta-final { background-color: var(--color-fondo-oscuro); color: var(--color-texto-claro); text-align: center; }
+        #cta-final h2 { font-size: 2.5rem; }
+        footer { background-color: #111; color: #aaa; text-align: center; padding: 40px 0; }
+        .footer-content { max-width: 800px; margin: auto; }
+        .footer-logo { height: 60px; margin-bottom: 20px; }
+        .footer-nav { margin: 20px 0; }
+        .footer-nav a { color: #aaa; margin: 0 15px; text-decoration: none; transition: color 0.3s; }
+        .footer-nav a:hover { color: var(--color-rojo-principal); }
+        .social-icons { margin: 20px 0; }
+        .social-icons a { color: #aaa; margin: 0 15px; text-decoration: none; font-size: 1.5rem; transition: color 0.3s; }
+        .social-icons a:hover { color: var(--color-rojo-principal); }
+        @media (max-width: 850px) {
+            .header .container { flex-direction: row; }
+            .menu-toggle { display: block; z-index: 1001; }
+            .main-nav { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); justify-content: center; align-items: center; }
+            .main-nav.is-active { display: flex; }
+            .main-nav ul { flex-direction: column; }
+            .main-nav ul li { margin: 20px 0; }
+            .main-nav ul li a { font-size: 1.5rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+            .hero .cta-buttons { display: flex; flex-direction: column; }
+            .hero .cta-buttons .btn { width: 100%; max-width: 350px; margin: 10px auto; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .testimonials-container { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div id="preloader"><div class="spinner"></div></div>
+
+    <header class="header">
+        <div class="container">
+            <a href="index.html"><img src="logo1.png" alt="Visión MS Producción Audiovisual Logo" class="logo"></a>
+            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="empresas.html">Empresas</a></li>
+                    <li><a href="portafolio.html">Portafolio</a></li>
+                    <li><a href="cotizador.html">Cotizador</a></li>
+                    <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html" class="btn">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+    <section class="hero">
+        <div class="video-background">
+            <iframe src="https://www.youtube.com/embed/j0oz7MHCsLM?autoplay=1&mute=1&loop=1&playlist=j0oz7MHCsLM&controls=0&showinfo=0&autohide=1&modestbranding=1" frameborder="0"></iframe>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content" data-aos="fade-in" data-aos-duration="1000">
+            <h1>Contamos Historias. Creamos Impacto.</h1>
+            <p>Producción audiovisual de vanguardia para tus momentos más especiales y tus proyectos más ambiciosos.</p>
+            <div class="cta-buttons">
+                <a href="eventos.html" class="btn btn-primary">Fotografía y Video de Eventos</a>
+                <a href="empresas.html" class="btn btn-secondary">Soluciones para Empresas</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="intro">
+        <div class="container" data-aos="fade-up">
+            <h2>Tu Visión, Nuestra Misión.</h2>
+            <p>En <strong>Visión MS Producción Audiovisual</strong>, entendemos el poder de una imagen. Somos un equipo de creativos, técnicos y narradores apasionados por transformar ideas y emociones en contenido visual que no solo se ve, sino que se siente. Somos más que una productora; somos tus socios estratégicos en comunicación visual.</p>
+        </div>
+    </section>
+
+    <section id="servicios">
+        <div class="container">
+            <h2 data-aos="fade-up">Un Servicio Integral para Cada Necesidad</h2>
+            <div class="services-grid">
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="100"><a href="eventos.html" style="text-decoration: none; color: inherit;"><h3>Eventos Sociales y Bodas</h3><p>Capturamos la esencia y la alegría de tus celebraciones más importantes.</p></a></div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="200"><a href="empresas.html" style="text-decoration: none; color: inherit;"><h3>Video y Foto para Empresas</h3><p>Potenciamos tu marca con contenido de alta calidad que genera resultados.</p></a></div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="300"><h3>Tomas Aéreas con Dron</h3><p>Ofrecemos perspectivas espectaculares que añaden un valor incalculable.</p></div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="400"><h3>Streaming y Producción en Vivo</h3><p>Conectamos tu evento con el mundo en tiempo real y sin fallos.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portafolio">
+        <div class="container">
+            <h2 data-aos="fade-up">Nuestro Trabajo Habla por Nosotros</h2>
+            <div class="portfolio-grid">
+                <a href="portafolio.html" class="portfolio-item focus-top" data-aos="fade-right" style="background-image: url('images/boda.jpeg');" aria-label="Portafolio de Boda"></a>
+                <a href="portafolio.html" class="portfolio-item" data-aos="fade-left" style="background-image: url('images/producto.jpg');" aria-label="Portafolio de Producto"></a>
+                <a href="portafolio.html" class="portfolio-item" data-aos="fade-right" style="background-image: url('images/empresa.jpg');" aria-label="Portafolio Corporativo"></a>
+                <a href="portafolio.html" class="portfolio-item focus-top" data-aos="fade-left" style="background-image: url('images/retrato.JPG');" aria-label="Portafolio de Retrato"></a>
+            </div>
+            <div style="text-align: center; margin-top: 40px;" data-aos="fade-up">
+                <a href="portafolio.html" class="btn">Ver Portafolio Completo</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonios">
+        <div class="container">
+            <h2 data-aos="fade-up">La Confianza de Nuestros Clientes</h2>
+            <div class="testimonials-container">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <p>"No podríamos estar más felices. El equipo de Visión MS no solo capturó fotos, capturó la emoción de nuestro día. Profesionales, cercanos y con un talento increíble."</p>
+                    <cite>- Sofía y Javier R.</cite>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <p>"El video institucional que produjeron para nosotros ha transformado nuestra comunicación. Entendieron el mensaje y lo ejecutaron con una calidad impecable. Un socio estratégico."</p>
+                    <cite>- Carlos Méndez, Director de Marketing</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="cta-final">
+        <div class="container" data-aos="zoom-in">
+            <h2>¿Listo para dar vida a tu visión?</h2>
+            <p>Sea cual sea tu proyecto, estamos aquí para escucharte y convertir tus ideas en una realidad visual poderosa.</p>
+            <br>
+            <a href="contacto.html" class="btn">Hablemos de tu Proyecto</a>
+        </div>
+    </section>
+    </main>
+    <footer>
+        <div class="container footer-content">
+            <img src="logo1.png" alt="Logo Visión MS" class="footer-logo">
+            <nav class="footer-nav">
+                <a href="index.html">Inicio</a> | 
+                <a href="portafolio.html">Portafolio</a> | 
+                <a href="cotizador.html">Cotizador</a> | 
+                <a href="contacto.html">Contacto</a>
+            </nav>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/vmsaudiovisual/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📷</a>
+                <a href="https://www.youtube.com/@vmsproduccionaudiovisual4856" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶️</a>
+            </div>
+            <p>&copy; 2024 Visión MS Producción Audiovisual. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        const preloader = document.getElementById('preloader');
+        window.addEventListener('load', () => {
+            preloader.style.opacity = '0';
+            setTimeout(() => { preloader.style.display = 'none'; }, 500);
+        });
+
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('is-active');
+            menuToggle.innerHTML = mainNav.classList.contains('is-active') ? '✕' : '☰';
+        });
+
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (link.hostname === window.location.hostname && href && !href.startsWith('#')) {
+                    e.preventDefault();
+                    if (mainNav.classList.contains('is-active')) {
+                        mainNav.classList.remove('is-active');
+                        menuToggle.innerHTML = '☰';
+                    }
+                    document.body.classList.add('fade-out');
+                    setTimeout(() => { window.location.href = href; }, 400);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
