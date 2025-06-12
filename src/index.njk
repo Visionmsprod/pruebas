@@ -10,16 +10,16 @@ description: "Producción audiovisual profesional para bodas, eventos y empresas
             <iframe src="https://www.youtube.com/embed/j0oz7MHCsLM?autoplay=1&mute=1&loop=1&playlist=j0oz7MHCsLM&controls=0&showinfo=0&autohide=1&modestbranding=1" frameborder="0"></iframe>
         </div>
         <div class="hero-overlay"></div>
-        <div class="hero-content" data-aos="fade-in">
+        <div class="hero-content" data-aos="fade-in" data-aos-duration="1000">
             <h1>{{ homepage.titulo }}</h1>
             <p>{{ homepage.subtitulo }}</p>
             <div class="cta-buttons">
-                <a href="/eventos/" class="btn btn-primary">Eventos Sociales</a>
+                <a href="/eventos/" class="btn btn-primary">Fotografía y Video de Eventos</a>
                 <a href="/empresas/" class="btn btn-secondary">Soluciones para Empresas</a>
             </div>
         </div>
     </section>
-    
+
     <section id="intro">
         <div class="container" data-aos="fade-up">
             <h2>{{ homepage.intro_titulo }}</h2>
@@ -27,5 +27,71 @@ description: "Producción audiovisual profesional para bodas, eventos y empresas
         </div>
     </section>
 
-    <!-- ... RESTO DE LAS SECCIONES DEL INDEX ... -->
+    <section id="servicios">
+        <div class="container">
+            <h2 data-aos="fade-up">Un Servicio Integral para Cada Necesidad</h2>
+            <div class="services-grid">
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+                    <a href="/eventos/" style="text-decoration: none; color: inherit;">
+                        <h3>Eventos Sociales y Bodas</h3>
+                        <p>Capturamos la esencia y la alegría de tus celebraciones más importantes.</p>
+                    </a>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+                    <a href="/empresas/" style="text-decoration: none; color: inherit;">
+                        <h3>Video y Foto para Empresas</h3>
+                        <p>Potenciamos tu marca con contenido de alta calidad que genera resultados.</p>
+                    </a>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+                    <h3>Tomas Aéreas con Dron</h3>
+                    <p>Ofrecemos perspectivas espectaculares que añaden un valor incalculable.</p>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
+                    <h3>Streaming y Producción en Vivo</h3>
+                    <p>Conectamos tu evento con el mundo en tiempo real y sin fallos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portafolio">
+        <div class="container">
+            <h2 data-aos="fade-up">Nuestro Trabajo Habla por Nosotros</h2>
+            <div class="portfolio-grid">
+                <a href="/portafolio/" class="portfolio-item focus-top" data-aos="fade-right" style="background-image: url('/images/boda.jpeg');" aria-label="Portafolio de Boda"></a>
+                <a href="/portafolio/" class="portfolio-item" data-aos="fade-left" style="background-image: url('/images/producto.jpg');" aria-label="Portafolio de Producto"></a>
+                <a href="/portafolio/" class="portfolio-item" data-aos="fade-right" style="background-image: url('/images/empresa.jpg');" aria-label="Portafolio Corporativo"></a>
+                <a href="/portafolio/" class="portfolio-item focus-top" data-aos="fade-left" style="background-image: url('/images/retrato.jpg');" aria-label="Portafolio de Retrato"></a>
+            </div>
+            <div style="text-align: center; margin-top: 40px;" data-aos="fade-up">
+                <a href="/portafolio/" class="btn">Ver Portafolio Completo</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonios">
+        <div class="container">
+            <h2 data-aos="fade-up">La Confianza de Nuestros Clientes</h2>
+            <div class="testimonials-container">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <p>"No podríamos estar más felices. El equipo de Visión MS no solo capturó fotos, capturó la emoción de nuestro día. Profesionales, cercanos y con un talento increíble."</p>
+                    <cite>- Sofía y Javier R.</cite>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <p>"El video institucional que produjeron para nosotros ha transformado nuestra comunicación. Entendieron el mensaje y lo ejecutaron con una calidad impecable. Un socio estratégico."</p>
+                    <cite>- Carlos Méndez, Director de Marketing</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="cta-final">
+        <div class="container" data-aos="zoom-in">
+            <h2>¿Listo para dar vida a tu visión?</h2>
+            <p>Sea cual sea tu proyecto, estamos aquí para escucharte y convertir tus ideas en una realidad visual poderosa.</p>
+            <br>
+            <a href="/contacto/" class="btn">Hablemos de tu Proyecto</a>
+        </div>
+    </section>
 </main>
