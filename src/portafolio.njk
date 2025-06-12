@@ -5,7 +5,6 @@ description: "Explora nuestro portafolio de fotografía y video. Bodas, quince a
 ---
 
 <style>
-    /* Estilos específicos para la galería del portafolio */
     .portfolio-filters { text-align: center; margin-bottom: 40px; }
     .portfolio-filters button { background: #e0e0e0; color: #333; border: none; padding: 10px 20px; margin: 5px; border-radius: 5px; cursor: pointer; font-weight: 600; transition: background-color 0.3s; }
     .portfolio-filters button:hover { background-color: #ccc; }
@@ -22,20 +21,19 @@ description: "Explora nuestro portafolio de fotografía y video. Bodas, quince a
         width: 100%;
         overflow: hidden;
         border-radius: 5px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
         cursor: pointer;
-    }
-    .portfolio-item:hover {
-        transform: scale(1.03);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
     .portfolio-item img {
         width: 100%;
         height: auto;
         display: block;
+        transition: transform 0.3s ease;
+    }
+    .portfolio-item:hover img {
+        transform: scale(1.05);
     }
 
-    /* Estilos para el Lightbox */
+    /* Estilos para el Lightbox con Animación de Zoom */
     .lightbox {
         display: none;
         position: fixed;
@@ -44,17 +42,26 @@ description: "Explora nuestro portafolio de fotografía y video. Bodas, quince a
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.85);
+        background-color: rgba(0, 0, 0, 0); /* Empieza transparente */
         justify-content: center;
         align-items: center;
+        transition: background-color 0.3s ease-in-out;
     }
     .lightbox.active {
         display: flex;
+        background-color: rgba(0, 0, 0, 0.85);
     }
     .lightbox-content {
         max-width: 90%;
         max-height: 90%;
         position: relative;
+        transform: scale(0.5); /* Empieza pequeño */
+        opacity: 0;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+    .lightbox.active .lightbox-content {
+        transform: scale(1); /* Crece a tamaño normal */
+        opacity: 1;
     }
     .lightbox-content img {
         width: auto;
@@ -66,18 +73,18 @@ description: "Explora nuestro portafolio de fotografía y video. Bodas, quince a
     }
     .lightbox-close {
         position: absolute;
-        top: -40px;
-        right: 0;
+        top: -45px;
+        right: -10px;
         color: white;
         font-size: 3rem;
         font-weight: bold;
         cursor: pointer;
         transition: transform 0.2s;
+        text-shadow: 0 0 10px black;
     }
     .lightbox-close:hover {
         transform: scale(1.2);
     }
-
 
     @media (max-width: 991px) { .portfolio-gallery { column-count: 2; } }
     @media (max-width: 768px) { .portfolio-gallery { column-count: 1; } }
@@ -100,25 +107,25 @@ description: "Explora nuestro portafolio de fotografía y video. Bodas, quince a
                 <button class="filter-btn" data-filter="retrato">Retrato</button>
             </div>
             <div class="portfolio-gallery">
-                <!-- ========= IMÁGENES ACTUALIZADAS Y CON RUTAS CORRECTAS ========= -->
+                <!-- ========= IMÁGENES CON NOMBRES ORIGINALES ========= -->
                 <div class="portfolio-item" data-category="bodas" data-aos="zoom-in"><img src="/images/boda.jpeg" alt="Boda"></div>
                 <div class="portfolio-item" data-category="producto" data-aos="zoom-in"><img src="/images/producto.jpg" alt="Producto"></div>
                 <div class="portfolio-item" data-category="quince" data-aos="zoom-in"><img src="/images/quinces.jpg" alt="Quinceañera"></div>
-                <div class="portfolio-item" data-category="bodas" data-aos="zoom-in"><img src="/images/pre-boda.jpeg" alt="Pre Boda"></div>
-                <div class="portfolio-item" data-category="retrato" data-aos="zoom-in"><img src="/images/retrato.jpg" alt="Retrato"></div>
-                <div class="portfolio-item" data-category="eventos" data-aos="zoom-in"><img src="/images/evento.jpg" alt="Evento Social"></div>
+                <div class="portfolio-item" data-category="bodas" data-aos="zoom-in"><img src="/images/pre boda.jpeg" alt="Pre Boda"></div>
+                <div class="portfolio-item" data-category="retrato" data-aos="zoom-in"><img src="/images/retrato.JPG" alt="Retrato"></div>
+                <div class="portfolio-item" data-category="eventos" data-aos="zoom-in"><img src="/images/evento.JPG" alt="Evento Social"></div>
                 <div class="portfolio-item" data-category="producto" data-aos="zoom-in"><img src="/images/comida.jpg" alt="Comida"></div>
                 <div class="portfolio-item" data-category="bodas" data-aos="zoom-in"><img src="/images/boda2.jpeg" alt="Boda 2"></div>
                 <div class="portfolio-item" data-category="quince" data-aos="zoom-in"><img src="/images/quincess.jpg" alt="Sesión de Quinceañera"></div>
-                <div class="portfolio-item" data-category="retrato" data-aos="zoom-in"><img src="/images/retrato-10.jpg" alt="Retrato 10"></div>
+                <div class="portfolio-item" data-category="retrato" data-aos="zoom-in"><img src="/images/retrato(10).jpg" alt="retrato(10)"></div>
                 <div class="portfolio-item" data-category="eventos" data-aos="zoom-in"><img src="/images/revelacion.jpg" alt="Revelación de Género"></div>
-                <div class="portfolio-item" data-category="bodas" data-aos="zoom-in"><img src="/images/bodamanos.jpeg" alt="Manos Boda"></div>
+                <div class="portfolio-item" data-category="bodas" data-aos="zoom-in"><img src="/images/bodamanos.JPeG" alt="Manos Boda"></div>
                 <div class="portfolio-item" data-category="producto" data-aos="zoom-in"><img src="/images/producto-cartera.jpg" alt="Cartera"></div>
-                <div class="portfolio-item" data-category="eventos" data-aos="zoom-in"><img src="/images/evento2.jpg" alt="Evento 2"></div>
-                <div class="portfolio-item" data-category="retrato" data-aos="zoom-in"><img src="/images/retrato-2.jpg" alt="Retrato 2"></div>
+                <div class="portfolio-item" data-category="eventos" data-aos="zoom-in"><img src="/images/evento2.JPG" alt="Evento2"></div>
+                <div class="portfolio-item" data-category="retrato" data-aos="zoom-in"><img src="/images/retrato(2).jpg" alt="retrato(2)"></div>
                 <div class="portfolio-item" data-category="producto" data-aos="zoom-in"><img src="/images/producto-moto.jpg" alt="Moto"></div>
                 <div class="portfolio-item" data-category="retrato" data-aos="zoom-in"><img src="/images/retrato3.jpg" alt="Retrato 3"></div>
-                <div class="portfolio-item" data-category="retrato" data-aos="zoom-in"><img src="/images/retrato-4.jpg" alt="Retrato 4"></div>
+                <div class="portfolio-item" data-category="retrato" data-aos="zoom-in"><img src="/images/retrato5.jpg" alt="retrato5"></div>
                 <div class="portfolio-item" data-category="quince" data-aos="zoom-in"><img src="/images/DSC01891-Editar(1).jpg" alt="DSC01891-Editar(1)"></div>
             </div>
         </div>
@@ -135,7 +142,7 @@ description: "Explora nuestro portafolio de fotografía y video. Bodas, quince a
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // Lógica de los filtros (ya la teníamos)
+        // Lógica de los filtros
         const filterButtons = document.querySelectorAll('.filter-btn');
         const portfolioItems = document.querySelectorAll('.portfolio-item');
         filterButtons.forEach(button => {
@@ -149,7 +156,7 @@ description: "Explora nuestro portafolio de fotografía y video. Bodas, quince a
             });
         });
 
-        // Lógica del Lightbox (NUEVO)
+        // Lógica del Lightbox Animado
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxClose = document.getElementById('lightbox-close');
@@ -162,7 +169,6 @@ description: "Explora nuestro portafolio de fotografía y video. Bodas, quince a
             });
         });
 
-        // Cerrar el lightbox
         const closeLightbox = () => {
             lightbox.classList.remove('active');
         };
