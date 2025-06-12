@@ -4,6 +4,31 @@ title: "Soluciones para Empresas"
 description: "Producción de video y fotografía corporativa, de producto y aérea. Aumenta el impacto de tu marca con contenido profesional."
 ---
 
+<style>
+    /* Estilos específicos para esta página */
+    .intro-text ul {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 20px;
+        text-align: left;
+        display: inline-block;
+    }
+    .intro-text ul li {
+        font-weight: 600;
+        padding: 5px 0;
+    }
+    .intro-text ul li::before {
+        content: '✓';
+        color: var(--color-rojo-principal);
+        margin-right: 10px;
+        font-weight: bold;
+    }
+    #cta-cotizador.text-center {
+        background-color: var(--color-fondo-claro);
+        color: var(--color-texto-oscuro); /* Corrección de color de texto */
+    }
+</style>
+
 <main>
     <section class="page-header" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/images/empresa-01.jpg');" data-aos="fade-in">
         <div class="container">
@@ -60,7 +85,6 @@ description: "Producción de video y fotografía corporativa, de producto y aér
                 <h3 data-aos="fade-right">Streaming y Producción en Vivo</h3>
                 <p>Lleva tu evento más allá de las paredes. Conectamos con tu audiencia en tiempo real, con calidad de transmisión profesional y sin fallos técnicos.</p>
                 <div class="gallery-grid" style="margin-top: 30px;">
-                    <!-- ESPACIO PARA TUS FOTOS DE STREAMING -->
                     <div data-aos="zoom-in" data-aos-delay="100"><img src="https://via.placeholder.com/400x300.png?text=Conferencia+en+Vivo" alt="Conferencia en Vivo"></div>
                     <div data-aos="zoom-in" data-aos-delay="200"><img src="https://via.placeholder.com/400x300.png?text=Control+de+Video" alt="Control de Video"></div>
                     <div data-aos="zoom-in" data-aos-delay="300"><img src="https://via.placeholder.com/400x300.png?text=Cámara+de+Evento" alt="Cámara de Evento"></div>
@@ -87,7 +111,7 @@ description: "Producción de video y fotografía corporativa, de producto y aér
         </div>
     </section>
     
-    <section id="cta-cotizador" class="text-center" style="background-color: var(--color-fondo-claro);">
+    <section id="cta-cotizador" class="text-center">
         <div class="container" data-aos="zoom-in">
             <h2>¿Tienes un proyecto en mente?</h2>
             <p>Usa nuestro cotizador online para configurar un paquete de servicios y recibir una propuesta formal.</p>
