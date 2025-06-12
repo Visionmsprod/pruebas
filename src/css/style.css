@@ -92,3 +92,22 @@ footer { background-color: #111; color: #aaa; text-align: center; padding: 40px 
 .process-step:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 .process-step h3 { font-size: 1.2rem; }
 .process-step .step-number { font-size: 2.5rem; font-weight: 900; color: var(--color-rojo-principal); margin-bottom: 10px; }
+/* --- ESTILOS PARA ICONOS SVG --- */
+.info-item .icon {
+    display: inline-block;
+    width: 28px;  /* Ancho fijo */
+    height: 28px; /* Alto fijo */
+    margin-right: 15px;
+    fill: var(--color-rojo-principal); /* Colorea el logo */
+}
+
+.social-icons .icon {
+    width: 24px;  /* Un poco más pequeño para el footer */
+    height: 24px;
+    fill: #aaa; /* Color por defecto en footer */
+    transition: fill 0.3s;
+}
+
+.social-icons a:hover .icon {
+    fill: var(--color-rojo-principal); /* Cambia de color al pasar el ratón */
+}
