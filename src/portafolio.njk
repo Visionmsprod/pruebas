@@ -38,7 +38,7 @@ description: "Explora nuestro portafolio de fotografía y video. Bodas, quince a
 </style>
 
 <main>
-    <section class="page-header" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/evento.JPG');" data-aos="fade-in">
+    <section class="page-header" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/evento.jpg');" data-aos="fade-in">
         <div class="container">
             <h1>Nuestro Trabajo</h1>
         </div>
@@ -54,24 +54,27 @@ description: "Explora nuestro portafolio de fotografía y video. Bodas, quince a
                 <button class="filter-btn" data-filter="retrato">Retrato</button>
             </div>
             <div class="portfolio-gallery">
-                <!-- Las imágenes se cargarán aquí dinámicamente en el futuro. Por ahora, las dejamos estáticas. -->
+                <!-- ========= IMÁGENES ACTUALIZADAS Y CON RUTAS CORRECTAS ========= -->
                 <div class="portfolio-item" data-category="bodas" data-aos="zoom-in"><img src="/images/boda.jpeg" alt="Boda"></div>
                 <div class="portfolio-item" data-category="producto" data-aos="zoom-in"><img src="/images/producto.jpg" alt="Producto"></div>
                 <div class="portfolio-item" data-category="quince" data-aos="zoom-in"><img src="/images/quinces.jpg" alt="Quinceañera"></div>
                 <div class="portfolio-item" data-category="bodas" data-aos="zoom-in"><img src="/images/pre boda.jpeg" alt="Pre Boda"></div>
                 <div class="portfolio-item" data-category="retrato" data-aos="zoom-in"><img src="/images/retrato.jpg" alt="Retrato"></div>
-                <div class="portfolio-item" data-category="eventos" data-aos="zoom-in"><img src="/images/evento.JPG" alt="Evento Social"></div>
+                <div class="portfolio-item" data-category="eventos" data-aos="zoom-in"><img src="/images/evento.jpg" alt="Evento Social"></div>
                 <div class="portfolio-item" data-category="producto" data-aos="zoom-in"><img src="/images/comida.jpg" alt="Comida"></div>
                 <div class="portfolio-item" data-category="bodas" data-aos="zoom-in"><img src="/images/boda2.jpeg" alt="Boda 2"></div>
                 <div class="portfolio-item" data-category="quince" data-aos="zoom-in"><img src="/images/quincess.jpg" alt="Sesión de Quinceañera"></div>
-                <div class="portfolio-item" data-category="retrato" data-aos="zoom-in"><img src="/images/retrato(9).JPG" alt="Retrato 9"></div>
+                <div class="portfolio-item" data-category="retrato" data-aos="zoom-in"><img src="/images/retrato-9.jpg" alt="Retrato 9"></div>
                 <div class="portfolio-item" data-category="eventos" data-aos="zoom-in"><img src="/images/revelacion.jpg" alt="Revelación de Género"></div>
                 <div class="portfolio-item" data-category="bodas" data-aos="zoom-in"><img src="/images/bodamanos.jpeg" alt="Manos Boda"></div>
                 <div class="portfolio-item" data-category="producto" data-aos="zoom-in"><img src="/images/producto-cartera.jpg" alt="Cartera"></div>
                 <div class="portfolio-item" data-category="eventos" data-aos="zoom-in"><img src="/images/evento-2.jpg" alt="Evento 2"></div>
-                <div class="portfolio-item" data-category="retrato" data-aos="zoom-in"><img src="/images/retrato(12).jpg" alt="Retrato 12"></div>
+                <div class="portfolio-item" data-category="retrato" data-aos="zoom-in"><img src="/images/retrato-12.jpg" alt="Retrato 12"></div>
                 <div class="portfolio-item" data-category="producto" data-aos="zoom-in"><img src="/images/producto-moto.jpg" alt="Moto"></div>
                 <div class="portfolio-item" data-category="retrato" data-aos="zoom-in"><img src="/images/retrato3.jpg" alt="Retrato 3"></div>
+                <!-- ========= NUEVAS IMÁGENES AÑADIDAS ========= -->
+                <div class="portfolio-item" data-category="retrato" data-aos="zoom-in"><img src="/images/retrato-4.jpg" alt="Retrato 4"></div>
+                <div class="portfolio-item" data-category="quince" data-aos="zoom-in"><img src="/images/quince-sesion-1.jpg" alt="Sesión de Quinceañera 2"></div>
             </div>
         </div>
     </section>
@@ -90,10 +93,9 @@ description: "Explora nuestro portafolio de fotografía y video. Bodas, quince a
                 const filter = button.dataset.filter;
 
                 portfolioItems.forEach(item => {
+                    item.style.display = 'none'; // Ocultar para re-evaluar
                     if (filter === 'all' || item.dataset.category === filter) {
                         item.style.display = 'inline-block';
-                    } else {
-                        item.style.display = 'none';
                     }
                 });
             });
