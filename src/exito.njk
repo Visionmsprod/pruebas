@@ -1,0 +1,27 @@
+---
+layout: "base.njk"
+title: "¡Mensaje Enviado!"
+description: "Gracias por contactar con Visión MS Producción Audiovisual."
+---
+<style>
+    .success-container { text-align: center; padding: 100px 20px; }
+    .animation-container { position: relative; width: 200px; height: 200px; margin: 0 auto 40px; }
+    .owl-icon { width: 80px; height: 80px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    .letter-icon { font-size: 50px; position: absolute; top: 50%; left: -100px; animation: fly-in 1.5s ease-in-out forwards; }
+    @keyframes fly-in {
+        0% { transform: translate(0, 0) scale(0.5); opacity: 1; }
+        80% { transform: translate(120px, -50px) scale(1); opacity: 1; }
+        100% { transform: translate(125px, -55px) scale(0); opacity: 0; }
+    }
+</style>
+<main>
+    <section class="success-container">
+        <div class="animation-container">
+            <div class="letter-icon">✉️</div>
+            <img src="/logo1.png" alt="Logo Búho" class="owl-icon">
+        </div>
+        <h1 data-aos="fade-up">¡Gracias por tu mensaje!</h1>
+        <p data-aos="fade-up" data-aos-delay="100">Hemos recibido tu solicitud correctamente. Nos pondremos en contacto contigo en menos de 24 horas.</p>
+        <a href="/" class="btn" data-aos="fade-up" data-aos-delay="200">Volver al Inicio</a>
+    </section>
+</main>
