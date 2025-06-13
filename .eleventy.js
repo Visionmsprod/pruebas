@@ -34,6 +34,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/logo1.png");
   eleventyConfig.addPassthroughCopy("src/luisk.jpg");
   eleventyConfig.addPassthroughCopy("src/favicon.png");
+  eleventyConfig.addPassthroughCopy("src/vmsrojo.png");
 
   // --- CONFIGURACIÓN DE DIRECTORIOS DE ELEVENTY ---
   return {
