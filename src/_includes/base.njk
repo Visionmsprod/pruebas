@@ -14,17 +14,7 @@
     {{ extraStyles | safe }}
 
     <!-- SCRIPT DE NETLIFY IDENTITY (AÑADIDO EN EL HEAD) -->
-    <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
-        });
-      }
-    </script>
+    
 </head>
 <body>
     <div id="preloader"><div class="spinner"></div></div>
