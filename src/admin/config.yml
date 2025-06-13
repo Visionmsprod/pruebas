@@ -1,13 +1,16 @@
+# Backend para conectar con GitHub a través de Netlify Identity
 backend:
   name: git-gateway
   branch: main
 
-media_folder: "src/images"
-public_folder: "/images"
+# Localización de los medios (imágenes)
+media_folder: "src/images/uploads" # Las imágenes subidas desde el CMS irán aquí
+public_folder: "/images/uploads"   # Cómo se accederá a las imágenes desde la web
 
+# Colecciones de contenido editable
 collections:
   - name: "paginas"
-    label: "Contenido de Páginas"
+    label: "Páginas Principales"
     files:
       - file: "src/_data/homepage.json"
         label: "Página de Inicio"
@@ -17,13 +20,49 @@ collections:
           - {label: "Subtítulo", name: "subtitulo", widget: "string"}
           - {label: "Título de Introducción", name: "intro_titulo", widget: "string"}
           - {label: "Texto de Introducción", name: "intro_texto", widget: "text"}
-      # Aquí añadiremos las otras páginas como 'sobre_nosotros.json', etc.
+      - file: "src/_data/sobre_nosotros.json"
+        label: "Página 'Sobre Nosotros'"
+        name: "sobre_nosotros"
+        fields:
+          - {label: "Título de la Historia", name: "historia_titulo", widget: "string"}
+          - {label: "Cuerpo de la Historia", name: "historia_cuerpo", widget: "markdown"}
+          - {label: "Foto Principal de la Historia", name: "historia_foto", widget: "image"}
+          - name: "equipo"
+            label: "Miembros del Equipo"
+            widget: "list"
+            fields:
+              - {label: "Nombre", name: "nombre", widget: "string"}
+              - {label: "Cargo", name: "cargo", widget: "string"}
+              - {label: "Foto (cuadrada)", name: "foto", widget: "image"}
+              - {label: "Cita", name: "cita", widget: "string"}
+
+  - name: "portafolio"
+    label: "Portafolio"
+    folder: "src/portafolio"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Título (para tu referencia)", name: "title", widget: "string"}
+      - {label: "Imagen", name: "image", widget: "image"}
+      - {label: "Categoría", name: "category", widget: "select", options: ["bodas", "quince", "eventos", "producto", "retrato"]}
+  
+  - name: "servicios_cotizador"
+    label: "Servicios del Cotizador"
+    folder: "src/servicios"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nombre del Servicio", name: "title", widget: "string"}
+      - {label: "Sección del Cotizador", name: "seccion", widget: "select", options: ["Bodas", "Quince Años", "Retratos", "Empresas", "Streaming", "Redes Sociales"]}
+      - {label: "Tipo (elige uno)", name: "tipo", widget: "select", options: ["Paquete Principal", "Adicional"]}
+      - {label: "Descripción Corta", name: "descripcion", widget: "string"}
+      - {label: "Precio (sólo el número, sin puntos)", name: "precio", widget: "number"}
 
   - name: "configuracion"
     label: "Configuración Global"
     files:
       - file: "src/_data/sitio.json"
-        label: "Datos de Contacto"
+        label: "Datos de Contacto y Redes"
         name: "sitio"
         fields:
           - {label: "Email de Contacto", name: "email", widget: "string"}
