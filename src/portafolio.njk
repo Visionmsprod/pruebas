@@ -26,25 +26,18 @@ description: "Explora nuestro portafolio de fotografía y video. Bodas, quince a
 </style>
 
 <main>
-    <section class="page-header" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/evento.jpg');" data-aos="fade-in">
-        <div class="container">
-            <h1>Nuestro Trabajo</h1>
-        </div>
+    <section class="page-header" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/evento.jpg');">
+        <div class="container"><h1>Nuestro Trabajo</h1></div>
     </section>
     <section id="portfolio-page">
         <div class="container">
-            <div class="portfolio-filters" data-aos="fade-up">
-                <button class="filter-btn active" data-filter="all">Todo</button>
-                <button class="filter-btn" data-filter="bodas">Bodas</button>
-                <button class="filter-btn" data-filter="quince">Quince Años</button>
-                <button class="filter-btn" data-filter="eventos">Eventos</button>
-                <button class="filter-btn" data-filter="producto">Producto</button>
-                <button class="filter-btn" data-filter="retrato">Retrato</button>
+            <div class="portfolio-filters">
+                <!-- ... (Los botones de filtro no cambian) ... -->
             </div>
             <div class="portfolio-gallery">
-                {# Este bucle ahora construye la galería dinámicamente #}
-                {% for item in collections.portafolio %}
-                <div class="portfolio-item" data-category="{{ item.data.category }}" data-aos="zoom-in">
+                {# --- LÍNEA CORREGIDA --- #}
+                {% for item in collections.all | getFilteredByTag("portafolio") %}
+                <div class="portfolio-item" data-category="{{ item.data.category }}">
                     <img src="{{ item.data.image | url }}" alt="{{ item.data.title }}">
                 </div>
                 {% endfor %}
