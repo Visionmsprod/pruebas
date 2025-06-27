@@ -5,7 +5,33 @@ description: "Calcula un presupuesto estimado para tu boda, quince años, sesió
 ---
 
 <style>
-    /* ... (El CSS del cotizador no cambia) ... */
+    /* Estilos del Cotizador (no cambian) */
+    .service-selection-menu { text-align: center; margin-bottom: 50px; flex-wrap: wrap; display: flex; justify-content: center;}
+    .service-selection-menu .btn { margin: 5px; background-color: #6c757d; }
+    .service-selection-menu .btn.active { background-color: var(--color-rojo-principal); }
+    .calculator-wrapper { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; }
+    .calculator-section { display: none; }
+    .calculator-section.active { display: block; }
+    .calculator-section h2 { font-size: 2rem; border-bottom: 3px solid var(--color-rojo-principal); padding-bottom: 10px; display: inline-block;}
+    .services-list h3 { font-size: 1.5rem; margin-top: 30px; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+    .service-item { display: flex; flex-direction: column; padding: 15px 10px; border-bottom: 1px solid #eee; }
+    .service-item-main { display: flex; justify-content: space-between; align-items: flex-start; width: 100%;}
+    .service-item-label-group { display: flex; align-items: flex-start; width: 100%; }
+    .service-item label { font-weight: 600; cursor: pointer; display: block; width: 100%;}
+    .service-item .price { font-weight: 700; color: var(--color-rojo-principal); white-space: nowrap; padding-left: 20px;}
+    .service-item input { flex-shrink: 0; transform: scale(1.5); margin-top: 5px; margin-right: 15px; cursor: pointer;}
+    .service-item .description { font-size: 0.85rem; color: #666; padding: 10px 15px; margin-left: 37px; margin-top: 10px; font-weight: 400; line-height: 1.4; background-color: #f9f9f9; border-radius: 5px; border-left: 3px solid var(--color-rojo-principal); display: none; }
+    .summary { position: sticky; top: 120px; background-color: var(--color-fondo-claro); padding: 30px; border-radius: 10px; }
+    .summary h3 { font-size: 1.8rem; }
+    #total-display { font-size: 2.5rem; font-weight: 900; color: var(--color-rojo-principal); margin: 20px 0; border-top: 2px solid #ccc; padding-top: 20px; text-align: center; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
+    .form-group input, .form-group textarea { width: 100%; padding: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; }
+    .notes-section { margin-top: 40px; font-size: 0.9em; color: #444; }
+    .notes-section h3 { font-size: 1.2rem; }
+    .notes-section ul { list-style-position: inside; padding-left: 5px; }
+    .notes-section li { margin-bottom: 10px; }
+    @media (max-width: 900px) { .calculator-wrapper { grid-template-columns: 1fr; } .summary { position: static; margin-top: 40px; } }
 </style>
 
 <main>
@@ -34,6 +60,7 @@ description: "Calcula un presupuesto estimado para tu boda, quince años, sesió
                 <div class="calculator-wrapper">
                     <div class="services-list" data-aos="fade-right">
                         
+                        {# Bucle para generar todas las secciones de la calculadora #}
                         {% set secciones = ["Bodas", "Quince Años", "Retratos", "Empresas", "Streaming", "Redes Sociales"] %}
                         {% for seccion in secciones %}
                         <div class="calculator-section {% if loop.first %}active{% endif %}" id="cotizador-{{ seccion | slug }}">
@@ -46,8 +73,7 @@ description: "Calcula un presupuesto estimado para tu boda, quince años, sesió
                                 <div class="service-item">
                                     <div class="service-item-main">
                                         <div class="service-item-label-group">
-                                            {# --- CAMBIO IMPORTANTE EN EL NAME --- #}
-                                            <input type="radio" id="{{ item.fileSlug }}" name="paquete_principal" value="{{ item.data.title }} - $ {{ item.data.precio | number_format }}" data-price="{{ item.data.precio }}">
+                                            <input type="radio" id="{{ item.fileSlug }}" name="paquete_principal_{{ seccion | slug }}" value="{{ item.data.title }}: {{ item.data.precio }}" data-price="{{ item.data.precio }}">
                                             <label for="{{ item.fileSlug }}">{{ item.data.title }}</label>
                                         </div>
                                         <span class="price">$ {{ item.data.precio | number_format }}</span>
@@ -66,8 +92,7 @@ description: "Calcula un presupuesto estimado para tu boda, quince años, sesió
                                 <div class="service-item">
                                     <div class="service-item-main">
                                         <div class="service-item-label-group">
-                                            {# --- CAMBIO IMPORTANTE EN EL NAME --- #}
-                                            <input type="checkbox" id="{{ item.fileSlug }}" name="adicionales[]" value="{{ item.data.title }} - $ {{ item.data.precio | number_format }}" data-price="{{ item.data.precio }}">
+                                            <input type="checkbox" id="{{ item.fileSlug }}" name="adicionales_{{ seccion | slug }}[]" value="{{ item.data.title }}: {{ item.data.precio }}" data-price="{{ item.data.precio }}">
                                             <label for="{{ item.fileSlug }}">{{ item.data.title }}</label>
                                         </div>
                                         <span class="price">$ {{ item.data.precio | number_format }}</span>
@@ -99,9 +124,9 @@ description: "Calcula un presupuesto estimado para tu boda, quince años, sesió
                  <div class="notes-section" data-aos="fade-up">
                     <h3>Atención a estos puntos (Aplica en cualquier paquete):</h3>
                     <ul>
-                        <li>Los gastos de viáticos si son fuera del casco urbano de Pasto correrán por parte del cliente.</li>
-                        <li>La forma de pago es 50% para reservar la fecha y 50% al finalizar el evento.</li>
-                        <li>El pago anticipado del 100% tiene un 5% de descuento sobre el valor final.</li>
+                        <li>Los gastos de viáticos (transporte, alimentación) si son fuera del casco urbano de Pasto correrán por cuenta del cliente.</li>
+                        <li>La forma de pago es 50% para reservar la fecha y 50% al finalizar el evento. El pago anticipado del 100% tiene un 5% de descuento sobre el valor final.</li>
+                        <li>Correcciones de Video: Se incluye 1 ronda de correcciones. Correcciones adicionales tendrán un costo extra.</li>
                     </ul>
                 </div>
             </form>
