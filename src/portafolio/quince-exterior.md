@@ -1,6 +1,6 @@
 ---
 title: Sesión Exterior de Quince
-image: /images/quince-sesion-1.jpg
+image: /images/DSC01823-Editar.jpg
 category: quince
 tags: portafolio
 ---
