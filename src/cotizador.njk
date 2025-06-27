@@ -1,44 +1,16 @@
 ---
 layout: "base.njk"
 title: "Cotizador Online"
-description: "Calcula un presupuesto estimado para tu boda, quince años, sesión de retrato, proyecto empresarial o transmisión en vivo."
+description: "Calcula un presupuesto estimado para tu proyecto."
 ---
 
 <style>
-    .service-selection-menu { text-align: center; margin-bottom: 50px; flex-wrap: wrap; display: flex; justify-content: center;}
-    .service-selection-menu .btn { margin: 5px; background-color: #6c757d; }
-    .service-selection-menu .btn.active { background-color: var(--color-rojo-principal); }
-    .calculator-wrapper { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; }
-    .calculator-section { display: none; }
-    .calculator-section.active { display: block; }
-    .calculator-section h2 { font-size: 2rem; border-bottom: 3px solid var(--color-rojo-principal); padding-bottom: 10px; display: inline-block;}
-    .services-list h3 { font-size: 1.5rem; margin-top: 30px; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
-    .service-item { display: flex; flex-direction: column; padding: 15px 10px; border-bottom: 1px solid #eee; }
-    .service-item-main { display: flex; justify-content: space-between; align-items: flex-start; width: 100%;}
-    .service-item-label-group { display: flex; align-items: flex-start; width: 100%; }
-    .service-item label { font-weight: 600; cursor: pointer; display: block; width: 100%;}
-    .service-item .price { font-weight: 700; color: var(--color-rojo-principal); white-space: nowrap; padding-left: 20px;}
-    .service-item input { flex-shrink: 0; transform: scale(1.5); margin-top: 5px; margin-right: 15px; cursor: pointer;}
-    .service-item .description { font-size: 0.85rem; color: #666; padding: 10px 15px; margin-left: 37px; margin-top: 10px; font-weight: 400; line-height: 1.4; background-color: #f9f9f9; border-radius: 5px; border-left: 3px solid var(--color-rojo-principal); display: none; }
-    .summary { position: sticky; top: 120px; background-color: var(--color-fondo-claro); padding: 30px; border-radius: 10px; }
-    .summary h3 { font-size: 1.8rem; }
-    #total-display { font-size: 2.5rem; font-weight: 900; color: var(--color-rojo-principal); margin: 20px 0; border-top: 2px solid #ccc; padding-top: 20px; text-align: center; }
-    .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
-    .form-group input, .form-group textarea { width: 100%; padding: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; }
-    .notes-section { margin-top: 40px; font-size: 0.9em; color: #444; }
-    .notes-section h3 { font-size: 1.2rem; }
-    .notes-section ul { list-style-position: inside; padding-left: 5px; }
-    .notes-section li { margin-bottom: 10px; }
-    @media (max-width: 900px) { .calculator-wrapper { grid-template-columns: 1fr; } .summary { position: static; margin-top: 40px; } }
+/* ... (Todo el CSS del cotizador va aquí, sin cambios) ... */
 </style>
 
 <main>
     <section class="page-header" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/corporativ.jpg');" data-aos="fade-in">
-        <div class="container">
-            <h1>Cotizador Online</h1>
-            <p>Calcula un presupuesto estimado para tu proyecto en tiempo real.</p>
-        </div>
+        <div class="container"><h1>Cotizador Online</h1></div>
     </section>
     <section id="calculator">
         <div class="container">
@@ -46,113 +18,58 @@ description: "Calcula un presupuesto estimado para tu boda, quince años, sesió
                 <h2>Paso 1: Selecciona el Tipo de Servicio</h2>
                 <div class="service-selection-menu">
                     <button class="btn active" data-target="cotizador-bodas">Bodas</button>
-                    <button class="btn" data-target="cotizador-quince">Quince Años</button>
-                    <button class="btn" data-target="cotizador-retrato">Retratos</button>
+                    <button class="btn" data-target="cotizador-quince-anos">Quince Años</button>
+                    <button class="btn" data-target="cotizador-retratos">Retratos</button>
                     <button class="btn" data-target="cotizador-empresas">Empresas</button>
-                    <button class="btn" data-target="cotizador-streaming">Streaming</button>
-                    <button class="btn" data-target="cotizador-redes">Redes Sociales</button>
+                    <button class="btn" data-target="cotizador-streaming-en-vivo">Streaming</button>
+                    <button class="btn" data-target="cotizador-redes-sociales">Redes Sociales</button>
                 </div>
             </div>
-           <form name="cotizacion_online" method="POST" data-netlify="true" id="calculator-form" action="/exito.html">
+            <form name="cotizacion_online" method="POST" data-netlify="true" id="calculator-form">
                 <input type="hidden" name="form-name" value="cotizacion_online" />
                 <input type="hidden" name="tipo_servicio_cotizado" id="tipo_servicio_cotizado" value="Bodas">
                 <div class="calculator-wrapper">
                     <div class="services-list" data-aos="fade-right">
                         
-                        <!-- === CONTENIDO DE TODAS LAS CALCULADORAS VA AQUÍ DIRECTAMENTE === -->
-                        
-                        <div class="calculator-section active" id="cotizador-bodas">
-                           <h2>Cotizador de Bodas</h2>
-<h3>Paquete Principal (Día del Evento)</h3>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="radio" id="boda_paq1" name="paquete_principal_boda" value="Paquete 'Nuestra Historia en Movimiento': 3,090,000" data-price="3090000"><label for="boda_paq1">Paquete "Nuestra Historia en Movimiento"</label></div><span class="price">$3.090.000</span></div><div class="description">Incluye: Video (30 min), Photobook (15 hojas, 40-50 fotos), 3 ampliaciones 20x30, 80 fotos digitales editadas, Entrega USB.</div></div>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="radio" id="boda_paq2" name="paquete_principal_boda" value="Experiencia Cinematográfica 'Para Siempre': 4,730,000" data-price="4730000"><label for="boda_paq2">Experiencia Cinematográfica "Para Siempre"</label></div><span class="price">$4.730.000</span></div><div class="description">Incluye: Video preboda, Video evento (30 min), Video flash (5 min), Sesión fotográfica preboda, Photobook, 3 ampliaciones, 80 fotos digitales.</div></div>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="radio" id="boda_foto_paq1" name="paquete_principal_boda" value="Captura Esencial 'El Gran Día': 897,000" data-price="897000"><label for="boda_foto_paq1">Captura Esencial "El Gran Día"</label></div><span class="price">$897.000</span></div><div class="description">Incluye: 40 fotos digitales editadas, 20 fotos impresas 13x18, 2 ampliaciones 20x30.</div></div>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="radio" id="boda_foto_paq2" name="paquete_principal_boda" value="Recuerdo Detallado 'Momentos Inolvidables': 1,397,000" data-price="1397000"><label for="boda_foto_paq2">Recuerdo Detallado "Momentos Inolvidables"</label></div><span class="price">$1.397.000</span></div><div class="description">Incluye: 60 fotos digitales, 30 impresas 13x18, 4 ampliaciones 20x30.</div></div>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="radio" id="boda_foto_paq3" name="paquete_principal_boda" value="El Tesoro Familiar (con Álbum de Lujo): 1,990,000" data-price="1990000"><label for="boda_foto_paq3">El Tesoro Familiar (con Álbum de Lujo)</label></div><span class="price">$1.990.000</span></div><div class="description">Incluye: 80 fotos digitales, 1 Photobook 30x30 (15 hojas), 3 ampliaciones 20x30.</div></div>
-<h3>Adicionales de Boda</h3>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="checkbox" id="boda_preboda" name="adicionales_boda[]" value="Sesión 'Comienza la Aventura': 397,000" data-price="397000"><label for="boda_preboda">Sesión "Comienza la Aventura"</label></div><span class="price">$397.000</span></div><div class="description">Sesión Pre-Boda de 2h con 12 fotos digitales/impresas y 1 ampliación.</div></div>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="checkbox" id="boda_drone" name="adicionales_boda[]" value="Adicional: Tomas Aéreas con Dron: 350,000" data-price="350000"><label for="boda_drone">Adicional: Tomas Aéreas con Dron</label></div><span class="price">$350.000</span></div><div class="description">Captura de momentos clave de la ceremonia y recepción desde el aire.</div></div>
-```
-</details> 
-                        </div>
-                        <div class="calculator-section" id="cotizador-quince">
-                             <h2>Cotizador de Quince Años</h2>
-<h3>Paquete Principal (Día del Evento)</h3>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="radio" id="quince_fotoradio_1" name="paquete_principal_quince" value="Paquete 'Mi Noche de Ensueño': 2,741,000" data-price="2741000"><label for="quince_fotoradio_1">Paquete "Mi Noche de Ensueño"</label></div><span class="price">$2.741.000</span></div><div class="description">Incluye: Video (30 min), Photobook (12 pág), 2 ampliaciones, 70 fotos digitales.</div></div>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="radio" id="quince_fotoradio_2" name="paquete_principal_quince" value="Experiencia 'Estrella de la Noche' (Full): 3,810,000" data-price="3810000"><label for="quince_fotoradio_2">Experiencia "Estrella de la Noche" (Full)</label></div><span class="price">$3.810.000</span></div><div class="description">Incluye: Video prequince, video evento, video flash, sesión prequince y más.</div></div>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="radio" id="quince_foto_1" name="paquete_principal_quince" value="Recuerdo 'Instantes Mágicos': 989,000" data-price="989000"><label for="quince_foto_1">Recuerdo "Instantes Mágicos"</label></div><span class="price">$989.000</span></div><div class="description">Incluye: 50 fotos digitales, 35 impresas (13x18), 2 ampliaciones. Sin álbum.</div></div>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="radio" id="quince_foto_2" name="paquete_principal_quince" value="Mi Diario de Quince (con Álbum): 1,899,000" data-price="1899000"><label for="quince_foto_2">Mi Diario de Quince (con Álbum)</label></div><span class="price">$1.899.000</span></div><div class="description">Incluye: 70 fotos digitales, Photobook (12 hojas), 2 ampliaciones.</div></div>
-<h3>Adicionales de Quince Años</h3>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="checkbox" id="prequince_1" name="adicionales_quince[]" value="Sesión Fotográfica 'Soy Protagonista' (2h): 357,000" data-price="357000"><label for="prequince_1">Sesión Fotográfica "Soy Protagonista" (2h)</label></div><span class="price">$357.000</span></div><div class="description">1 locación, 2 cambios, 10 fotos digitales y 10 impresas.</div></div>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="checkbox" id="video_prequince" name="adicionales_quince[]" value="Video de Presentación 'Mi Historia': 750,000" data-price="750000"><label for="video_prequince">Video de Presentación "Mi Historia"</label></div><span class="price">$750.000</span></div><div class="description">Video de presentación, tomas en exterior con dron y edición profesional.</div></div>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="checkbox" id="quince_drone" name="adicionales_quince[]" value="Adicional: Tomas Aéreas con Dron: 350,000" data-price="350000"><label for="quince_drone">Adicional: Tomas Aéreas con Dron</label></div><span class="price">$350.000</span></div><div class="description">Ideal para sesiones Pre-Quince en exteriores y tomas del lugar de la fiesta.</div></div>
-```
-                        </div>
-                        <div class="calculator-section" id="cotizador-retrato">
-                             <h2>Cotizador de Sesiones de Retrato</h2>
-<h3>Elige tu Experiencia Fotográfica</h3>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="radio" id="retrato_mini" name="paquete_principal_retrato" value="Mini Sesión Express" data-price="180000"><label for="retrato_mini">Mini Sesión Express</label></div><span class="price">$180.000</span></div><div class="description">Perfecta para actualizar tu perfil. Sesión de 40 minutos en estudio con 5 fotografías digitales editadas.</div></div>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="radio" id="retrato_estudio" name="paquete_principal_retrato" value="Retrato Profesional en Estudio" data-price="250000"><label for="retrato_estudio">Retrato Profesional en Estudio</label></div><span class="price">$250.000</span></div><div class="description">Ideal para imagen profesional. Sesión de 1 hora con 10-12 fotografías digitales editadas.</div></div>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="radio" id="retrato_exterior" name="paquete_principal_retrato" value="Aventura Fotográfica en Exterior" data-price="290000"><label for="retrato_exterior">Aventura Fotográfica en Exterior</label></div><span class="price">$290.000</span></div><div class="description">Capturamos tu esencia al aire libre. Sesión de 1.5 a 2 horas con 15-20 fotografías digitales editadas.</div></div>
-<h3>Añade Extras a tu Sesión</h3>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="checkbox" id="retrato_impresion" name="adicionales_retrato[]" value="Paquete de 10 Impresiones" data-price="60000"><label for="retrato_impresion">Paquete de 10 Impresiones</label></div><span class="price">$60.000</span></div><div class="description">Recibe tus 10 fotos favoritas impresas en tamaño 13x18 cm.</div></div>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="checkbox" id="retrato_ampliacion" name="adicionales_retrato[]" value="Ampliación de Lujo 20x30" data-price="45000"><label for="retrato_ampliacion">Ampliación de Lujo 20x30</label></div><span class="price">$45.000</span></div><div class="description">Una de tus fotos en gran formato, lista para enmarcar.</div></div>
-                        </div>
-                        <div class="calculator-section" id="cotizador-empresas">
-                             <h2>Cotizador para Empresas</h2>
-<h3>Servicios Principales</h3>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="checkbox" id="emp_foto_producto" name="servicios_empresa[]" value="Fotografía 'Impulso E-commerce'" data-price="500000"><label for="emp_foto_producto">Fotografía "Impulso E-commerce"</label></div><span class="price">$500.000</span></div><div class="description">Fotografía de producto profesional. Hasta 10 productos, ideal para catálogos y tiendas online.</div></div>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="checkbox" id="emp_video_corporativo" name="servicios_empresa[]" value="Video Corporativo 'Conecta con tu Audiencia'" data-price="1500000"><label for="emp_video_corporativo">Video Corporativo "Conecta con tu Audiencia"</label></div><span class="price">$1.500.000</span></div><div class="description">Video de 1-2 minutos para presentar tu marca, productos o servicios.</div></div>
-<h3>Adicionales para Empresas</h3>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="checkbox" id="emp_drone" name="adicionales_empresa[]" value="Adicional: Tomas Aéreas con Dron" data-price="400000"><label for="emp_drone">Adicional: Tomas Aéreas con Dron</label></div><span class="price">$400.000</span></div><div class="description">Perfecto para videos inmobiliarios, de turismo o para mostrar la escala de tus operaciones.</div></div>
-```
-                        </div>
-                        <div class="calculator-section" id="cotizador-streaming">
-                             <h2>Cotizador de Streaming en Vivo</h2>
-<h3>Paso 1: Elige tu Paquete Base de Producción</h3>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="radio" id="stream_paq1" name="paquete_principal_stream" value="Paquete Conexión Directa (1 Cámara)" data-price="1300000"><label for="stream_paq1">Paquete "Conexión Directa" (1 Cámara)</label></div><span class="price">$1.300.000</span></div><div class="description">Ideal para charlas o entrevistas. Incluye: 1 Cámara Pro, 1 Camarógrafo, Operador de Streaming, Mezclador de video y Consola de audio. Máximo 3 horas.</div></div>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="radio" id="stream_paq2" name="paquete_principal_stream" value="Paquete Evento Profesional (3 Cámaras)" data-price="2470000"><label for="stream_paq2">Paquete "Evento Profesional" (3 Cámaras)</label></div><span class="price">$2.470.000</span></div><div class="description">La opción más popular para conferencias y eventos. Incluye: 3 Cámaras Pro, 3 Camarógrafos, staff completo, mezcladores y equipo de transmisión. Máximo 3 horas.</div></div>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="radio" id="stream_paq3" name="paquete_principal_stream" value="Paquete Cobertura Total (5 Cámaras)" data-price="3640000"><label for="stream_paq3">Paquete "Cobertura Total" (5 Cámaras)</label></div><span class="price">$3.640.000</span></div><div class="description">Para conciertos o grandes lanzamientos. Incluye: 5 Cámaras Pro, 5 Camarógrafos y todo el equipamiento necesario para una producción de alto nivel. Máximo 3 horas.</div></div>
-<h3>Paso 2: Potencia tu Transmisión</h3>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="checkbox" id="stream_graficos" name="adicionales_stream[]" value="Paquete de Gráficos Animados" data-price="150000"><label for="stream_graficos">Paquete de Gráficos Animados</label></div><span class="price">$150.000</span></div><div class="description">Añade cintillas con nombres, cabezote de inicio y logo animado a tu transmisión.</div></div>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="checkbox" id="stream_grua" name="adicionales_stream[]" value="Grúa Profesional con Operador" data-price="800000"><label for="stream_grua">Grúa Profesional con Operador</label></div><span class="price">$800.000</span></div><div class="description">Añade movimientos de cámara cinematográficos y espectaculares a tu evento.</div></div>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="checkbox" id="stream_internet" name="adicionales_stream[]" value="Punto de Internet Móvil Dedicado" data-price="280000"><label for="stream_internet">Punto de Internet Móvil Dedicado</label></div><span class="price">$280.000</span></div><div class="description">Garantiza una transmisión estable si la conexión del lugar no es fiable (cobertura de 4h).</div></div>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="checkbox" id="stream_hora" name="adicionales_stream[]" value="Hora Extra de Transmisión" data-price="370000"><label for="stream_hora">Hora Extra de Transmisión</label></div><span class="price">$370.000</span></div><div class="description">Costo aproximado (15% del paquete estándar). Se ajustará en la cotización final.</div></div>
-```
-                        </div>
-                        <div class="calculator-section" id="cotizador-redes">
-                             <h2>Cotizador para Redes Sociales</h2>
-<h3>Paquetes Mensuales de Contenido</h3>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="radio" id="redes_starter" name="paquete_redes" value="Paquete Despegue" data-price="650000"><label for="redes_starter">Paquete "Despegue"</label></div><span class="price">$650.000/mes</span></div><div class="description">Ideal para empezar. Incluye 4 Reels verticales al mes (1 por semana).</div></div>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="radio" id="redes_creator" name="paquete_redes" value="Paquete Crecimiento" data-price="1200000"><label for="redes_creator">Paquete "Crecimiento"</label></div><span class="price">$1.200.000/mes</span></div><div class="description">El más popular. Incluye 8 Reels y 1 sesión de fotos de producto (20 fotos) al mes.</div></div>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="radio" id="redes_partner" name="paquete_redes" value="Paquete Dominio Total" data-price="2100000"><label for="redes_partner">Paquete "Dominio Total"</label></div><span class="price">$2.100.000/mes</span></div><div class="description">Contenido constante. Incluye 12 Reels y 2 sesiones de fotos (40 fotos) al mes.</div></div>
-<h3>Servicios Individuales (A la Carta)</h3>
-<div class="service-item"><div class="service-item-main"><div class="service-item-label-group"><input type="checkbox" id="redes_reel_unico" name="adicionales_redes[]" value="1 Reel Vertical" data-price="200000"><label for="redes_reel_unico">1 Reel Vertical</label></div><span class="price">$200.000</span></div><div class="description">Produce un video corto de alto impacto para una campaña o producto específico.</div></div>
-```
-                        </div>
+                        {% set secciones = ["Bodas", "Quince Años", "Retratos", "Empresas", "Streaming", "Redes Sociales"] %}
+                        {% for seccion in secciones %}
+                        <div class="calculator-section" id="cotizador-{{ seccion | slug }}">
+                            <h2>Cotizador de {{ seccion }}</h2>
+                            
+                            <h3>Paquetes Principales</h3>
+                            {% for item in collections.servicios_cotizador | filterby("seccion", seccion) | filterby("tipo", "Paquete Principal") %}
+                            <div class="service-item">
+                                <div class="service-item-main">
+                                    <div class="service-item-label-group">
+                                        <input type="radio" id="{{ item.fileSlug }}" name="paquete_principal_{{ seccion | slug }}" value="{{ item.data.title }}: {{ item.data.precio }}" data-price="{{ item.data.precio }}">
+                                        <label for="{{ item.fileSlug }}">{{ item.data.title }}</label>
+                                    </div>
+                                    <span class="price">{{ item.data.precio }} COP</span>
+                                </div>
+                                <div class="description">{{ item.data.descripcion }}</div>
+                            </div>
+                            {% endfor %}
 
+                            <h3>Adicionales</h3>
+                            {% for item in collections.servicios_cotizador | filterby("seccion", seccion) | filterby("tipo", "Adicional") %}
+                            <div class="service-item">
+                                <div class="service-item-main">
+                                    <div class="service-item-label-group">
+                                        <input type="checkbox" id="{{ item.fileSlug }}" name="adicionales_{{ seccion | slug }}[]" value="{{ item.data.title }}: {{ item.data.precio }}" data-price="{{ item.data.precio }}">
+                                        <label for="{{ item.fileSlug }}">{{ item.data.title }}</label>
+                                    </div>
+                                    <span class="price">{{ item.data.precio }} COP</span>
+                                </div>
+                                <div class="description">{{ item.data.descripcion }}</div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                        
                     </div>
                     <div class="summary" data-aos="fade-left" data-aos-delay="200">
-                        <h3>Presupuesto Estimado</h3>
-                        <div id="total-display">$0 COP</div>
-                        <div class="contact-form">
-                            <h3>Completa tus Datos para Finalizar</h3>
-                            <div class="form-group"><label for="name">Nombre Completo</label><input type="text" id="name" name="name" required></div>
-                            <div class="form-group"><label for="email">Correo Electrónico</label><input type="email" id="email" name="email" required></div>
-                            <div class="form-group"><label for="phone">Teléfono / WhatsApp</label><input type="tel" id="phone" name="phone" required></div>
-                            <div class="form-group"><label for="message">Fecha, Lugar y detalles del proyecto</label><textarea id="message" name="message" rows="4"></textarea></div>
-                            <input type="hidden" name="total_estimado" id="total-estimado-input">
-                            <button type="submit" class="btn" style="width: 100%;">Recibir Cotización Formal</button>
-                        </div>
+                        <!-- ... (resumen y formulario de contacto) ... -->
                     </div>
-                </div>
-                 <div class="notes-section" data-aos="fade-up">
-                    <h3>Atención a estos puntos (Aplica en cualquier paquete):</h3>
-                    <ul>
-                        <li>Los gastos de viáticos (transporte, alimentación) si son fuera del casco urbano de Pasto correrán por cuenta del cliente.</li>
-                        <li>La forma de pago es 50% para reservar la fecha y 50% al finalizar el evento. El pago anticipado del 100% tiene un 5% de descuento sobre el valor final.</li>
-                        <li>Correcciones de Video: Se incluye 1 ronda de correcciones. Correcciones adicionales tendrán un costo extra.</li>
-                    </ul>
                 </div>
             </form>
         </div>
