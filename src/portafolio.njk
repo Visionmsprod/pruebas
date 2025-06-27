@@ -31,13 +31,15 @@ description: "Explora nuestro portafolio de fotografía y video. Bodas, quince a
                 <button class="filter-btn" data-filter="producto">Producto</button>
                 <button class="filter-btn" data-filter="retrato">Retrato</button>
             </div>
-            <div class="portfolio-gallery">
-                {# --- ESTE ES EL BUCLE CORREGIDO --- #}
-                {# Usa directamente la colección 'portafolio' que definimos en .eleventy.js #}
-                {% for item in collections.portafolio %}
-                <div class="portfolio-item" data-category="{{ item.data.category }}" data-aos="zoom-in">
-                    <img src="{{ item.data.image | url }}" alt="{{ item.data.title }}">
-                </div>
+           <div class="portfolio-gallery">
+    {# --- ESTE ES EL BUCLE CORREGIDO --- #}
+    {# Usa directamente la colección 'portafolio' que ya está disponible #}
+    {% for item in collections.portafolio %}
+    <div class="portfolio-item" data-category="{{ item.data.category }}" data-aos="zoom-in">
+        <img src="{{ item.data.image | url }}" alt="{{ item.data.title }}">
+    </div>
+    {% endfor %}
+</div>
                 {% endfor %}
             </div>
         </div>
