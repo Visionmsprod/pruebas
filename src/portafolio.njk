@@ -35,8 +35,8 @@ description: "Explora nuestro portafolio de fotografía y video. Bodas, quince a
                 <!-- ... (Los botones de filtro no cambian) ... -->
             </div>
             <div class="portfolio-gallery">
-                {# --- LÍNEA CORREGIDA --- #}
-                {% for item in collections.all | getFilteredByTag("portafolio") %}
+                {# --- LÍNEA CORREGIDA: Usamos directamente la colección que ya creamos --- #}
+                {% for item in collections.portafolio %}
                 <div class="portfolio-item" data-category="{{ item.data.category }}">
                     <img src="{{ item.data.image | url }}" alt="{{ item.data.title }}">
                 </div>
