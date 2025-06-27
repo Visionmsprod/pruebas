@@ -76,11 +76,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- LÓGICA DEL COTIZADOR (CONSERVADA) ---
-    const calculatorForm = document.getElementById('calculator-form');
-    if (calculatorForm) {
-        const allCalculatorInputs = calculatorForm.querySelectorAll('input[type="checkbox"], input[type="radio"]');
-        const totalDisplay = document.getElementById('total-display');
-        const totalInput = document.getElementById('total-estimado-input');
+   const calculatorForm = document.getElementById('calculator-form');
+if (calculatorForm) {
+    const allCalculatorInputs = calculatorForm.querySelectorAll('input[type="checkbox"], input[type="radio"]');
+    const totalDisplay = document.getElementById('total-display');
+    const totalInput = document.getElementById('total-estimado-input');
+    const ResumenInput = document.getElementById('resumen-cotizacion-input'); //
         const serviceTypeInput = document.getElementById('tipo_servicio_cotizado');
         const selectionButtons = document.querySelectorAll('.service-selection-menu .btn');
         const calculatorSections = document.querySelectorAll('.calculator-section');
@@ -88,6 +89,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function calculateTotal() {
             let currentTotal = 0;
+             let resumenTexto = ""; // <-- Variable para construir el resumen
+        const activeSection = document.querySelector('.calculator-section.active');
+        
+        if (activeSection) {
+            activeSection.querySelectorAll('input:checked').forEach(input => {
+                const price = parseFloat(input.dataset.price);
+                const title = input.labels[0].textContent;
+                currentTotal += price;
+                resumenTexto += `- ${title}: $ ${new Intl.NumberFormat('es-CO').format(price)}\n`;
+            });
+        }
+        
+        // Formatear moneda
+        const formatter = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 });
+        
+        if (totalDisplay && totalInput && ResumenInput) {
+            totalDisplay.textContent = formatter.format(currentTotal);
+            totalInput.value = formatter.format(currentTotal);
+            
+            // Actualizar el resumen
+            if (resumenTexto) {
+                ResumenInput.value = `--- DETALLES DE LA COTIZACIÓN ---\n${resumenTexto}\n--- TOTAL ---\n${formatter.format(currentTotal)}`;
+            } else {
+                ResumenInput.value = "No se seleccionaron servicios.";
+            }
+        }
+    };
             const activeSection = document.querySelector('.calculator-section.active');
             if (activeSection) {
                 activeSection.querySelectorAll('input:checked').forEach(input => {
