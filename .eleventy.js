@@ -1,5 +1,17 @@
 module.exports = function(eleventyConfig) {
   
+  // --- COLECCIÓN PERSONALIZADA PARA EL PORTAFOLIO ---
+  eleventyConfig.addCollection("portafolio", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("src/portafolio/**/*.md").sort((a, b) => {
+      return b.date - a.date; 
+    });
+  });
+
+  // --- COLECCIÓN PERSONALIZADA PARA LOS SERVICIOS DEL COTIZADOR ---
+  eleventyConfig.addCollection("servicios_cotizador", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("src/servicios/**/*.md");
+  });
+
   // --- FILTROS PERSONALIZADOS ---
 
   // 1. Filtro para el cotizador (filterby)
@@ -18,23 +30,14 @@ module.exports = function(eleventyConfig) {
 
   // 2. Filtro para formatear precios (number_format) - ¡LA SOLUCIÓN!
   eleventyConfig.addFilter("number_format", (number) => {
+    // Si el número no es válido, devuelve 0 o un string vacío
+    if (isNaN(number)) {
+      return 'N/A';
+    }
     return new Intl.NumberFormat('es-CO').format(number);
   });
 
 
-  // --- COLECCIONES PERSONALIZADAS ---
-
-  // 1. Colección para el Portafolio
-  eleventyConfig.addCollection("portafolio", function(collectionApi) {
-    return collectionApi.getFilteredByTag("portafolio").sort((a, b) => b.date - a.date);
-  });
-
-  // 2. Colección para los Servicios del Cotizador
-  eleventyConfig.addCollection("servicios_cotizador", function(collectionApi) {
-    return collectionApi.getFilteredByTag("servicios_cotizador");
-  });
-  
-  
   // --- COPIAR ARCHIVOS ESTÁTICOS ---
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
@@ -46,8 +49,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/favicon.png");
   eleventyConfig.addPassthroughCopy("src/vmsrojo.png");
 
-
-  // --- CONFIGURACIÓN DE DIRECTORIOS ---
+  // --- CONFIGURACIÓN DE DIRECTORIOS DE ELEVENTY ---
   return {
     dir: {
       input: "src",
