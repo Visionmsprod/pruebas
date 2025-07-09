@@ -1,5 +1,5 @@
 ---
-title: "Santiago cruz "
-image: /images/uploads/eventosantiago.jpg
-category: eventos
+title: quincecarro
+image: /images/uploads/quinceaños-8-.jpg
+category: quince
 ---
